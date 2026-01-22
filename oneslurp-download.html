@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download OneSlurp - Rate Every Soup</title>
+    <meta name="description" content="Download OneSlurp - The soup review app. Available on iOS App Store and Android (beta testing).">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 500px;
+            width: 100%;
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .logo-image {
+            width: 120px;
+            height: 120px;
+            background: #FF6B35;
+            border-radius: 28px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 64px;
+            margin-bottom: 16px;
+            box-shadow: 0 8px 24px rgba(255, 107, 53, 0.3);
+        }
+
+        h1 {
+            color: #1a1a1a;
+            font-size: 32px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .tagline {
+            color: #666;
+            text-align: center;
+            font-size: 16px;
+            margin-bottom: 40px;
+        }
+
+        .section {
+            margin-bottom: 32px;
+        }
+
+        .section-title {
+            color: #1a1a1a;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #4CAF50;
+            color: white;
+            font-size: 12px;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-weight: 600;
+        }
+
+        .badge.beta {
+            background: #FF9800;
+        }
+
+        .download-button {
+            display: block;
+            width: 100%;
+            padding: 16px 24px;
+            background: #000;
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 16px;
+            text-align: center;
+            transition: all 0.3s ease;
+            margin-bottom: 12px;
+        }
+
+        .download-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .download-button.apple {
+            background: #000;
+        }
+
+        .download-button.android {
+            background: #3DDC84;
+            color: #000;
+        }
+
+        .download-button.android:hover {
+            background: #2ec771;
+        }
+
+        .divider {
+            text-align: center;
+            margin: 20px 0;
+            color: #999;
+            font-size: 14px;
+            position: relative;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 40%;
+            height: 1px;
+            background: #e0e0e0;
+        }
+
+        .divider::before {
+            left: 0;
+        }
+
+        .divider::after {
+            right: 0;
+        }
+
+        .email-form {
+            margin-top: 16px;
+        }
+
+        .input-group {
+            margin-bottom: 12px;
+        }
+
+        .input-group label {
+            display: block;
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #FF6B35;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 16px;
+            background: #FF6B35;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-button:hover {
+            background: #e55a2b;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+        }
+
+        .submit-button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .info-text {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-top: 12px;
+        }
+
+        .success-message {
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 16px;
+            border-radius: 8px;
+            margin-top: 12px;
+            display: none;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .error-message {
+            background: #ffebee;
+            color: #c62828;
+            padding: 16px;
+            border-radius: 8px;
+            margin-top: 12px;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .icon {
+            font-size: 20px;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 24px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .logo-image {
+                width: 100px;
+                height: 100px;
+                font-size: 56px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <div class="logo-image">🍜</div>
+            <h1>OneSlurp</h1>
+            <p class="tagline">Rate every soup, one slurp at a time</p>
+        </div>
+
+        <!-- iOS Download Section -->
+        <div class="section">
+            <div class="section-title">
+                <span class="icon">📱</span>
+                Download for iPhone
+                <span class="badge">Live</span>
+            </div>
+            <a href="https://apps.apple.com/us/app/oneslurp/id6756277758" 
+               class="download-button apple"
+               target="_blank"
+               rel="noopener noreferrer">
+                📲 Download on App Store
+            </a>
+            <p class="info-text">
+                Available now for iOS devices. Start rating soups today!
+            </p>
+        </div>
+
+        <!-- Android Testing Section -->
+        <div class="section">
+            <div class="section-title">
+                <span class="icon">🤖</span>
+                Download for Android
+                <span class="badge beta">Beta Testing</span>
+            </div>
+            
+            <a href="https://play.google.com/apps/internaltest/4700602152658105554" 
+               class="download-button android"
+               target="_blank"
+               rel="noopener noreferrer">
+                🚀 Join Internal Test
+            </a>
+
+            <div class="divider">OR</div>
+
+            <form class="email-form" id="androidSignupForm">
+                <div class="input-group">
+                    <label for="email">Request Android Access</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        placeholder="your@email.com"
+                        required
+                    >
+                </div>
+                <button type="submit" class="submit-button" id="submitButton">
+                    Request Beta Access
+                </button>
+            </form>
+
+            <div class="success-message" id="successMessage">
+                ✅ Thanks! Your request has been submitted. Check your email for the beta invite link.
+            </div>
+
+            <div class="error-message" id="errorMessage">
+                ⚠️ There was an error. Please email directly at oneslurp-app@proton.me
+            </div>
+
+            <p class="info-text">
+                Help us test OneSlurp on Android! We're working toward a full Google Play Store release.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('androidSignupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const submitButton = document.getElementById('submitButton');
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+            
+            // Hide previous messages
+            successMessage.classList.remove('show');
+            errorMessage.classList.remove('show');
+            
+            // Disable button
+            submitButton.disabled = true;
+            submitButton.textContent = 'Sending...';
+            
+            // Create mailto link (opens user's email client)
+            const subject = encodeURIComponent('OneSlurp Android Beta Access Request');
+            const body = encodeURIComponent(`I would like to join the OneSlurp Android beta test.
+
+Email: ${email}
+
+Please send me the invitation link.
+
+Thank you!`);
+            
+            const mailtoLink = `mailto:oneslurp-app@proton.me?subject=${subject}&body=${body}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Show success message
+            setTimeout(() => {
+                successMessage.classList.add('show');
+                submitButton.disabled = false;
+                submitButton.textContent = 'Request Beta Access';
+                document.getElementById('email').value = '';
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
