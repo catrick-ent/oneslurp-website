@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OneSlurp Merch - Coming Soon</title>
+  <meta name="description" content="OneSlurp merch is coming soon. Stay tuned for soup-worthy gear." />
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:title" content="OneSlurp Merch - Coming Soon" />
+  <meta property="og:description" content="Soup-worthy gear is on the way. 🍜" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://one-slurp.com/merch.html" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --primary: #FF6B35;
+      --primary-dark: #E55A2B;
+      --secondary: #004E89;
+      --cream: #FFF8E7;
+      --gray-50: #FAFAFA;
+      --gray-100: #F5F5F5;
+      --gray-200: #E0E0E0;
+      --gray-600: #666666;
+      --gray-900: #2C2C2C;
+      --success: #4CAF50;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--gray-900);
+      line-height: 1.6;
+      background: white;
+    }
+
+    h1, h2, h3 { font-family: 'Poppins', sans-serif; }
+
+    /* Navigation (same as index) */
+    nav {
+      background: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-text {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--gray-600);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--primary); }
+
+    /* Page hero */
+    .hero {
+      background: linear-gradient(135deg, var(--secondary) 0%, #003366 100%);
+      color: white;
+      padding: 6rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '🛍️';
+      position: absolute;
+      font-size: 22rem;
+      opacity: 0.12;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate(-50%, -50%) rotate(0deg); }
+      50% { transform: translate(-50%, -55%) rotate(5deg); }
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: 3.25rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      opacity: 0.95;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.875rem 1.75rem;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+      border: 2px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border-color: rgba(255,255,255,0.45);
+      color: white;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    /* Content section */
+    .content {
+      padding: 4rem 2rem;
+      background: var(--gray-50);
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      padding: 2rem;
+    }
+
+    .card h2 {
+      font-size: 2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .card p {
+      color: var(--gray-600);
+      font-size: 1.05rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .list {
+      margin: 1rem 0 0;
+      padding-left: 1.25rem;
+      color: var(--gray-600);
+    }
+
+    /* Footer (same as index) */
+    footer {
+      background: var(--gray-900);
+      color: white;
+      padding: 3rem 2rem 2rem;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-section h3 {
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+
+    .footer-section ul { list-style: none; }
+    .footer-section ul li { margin-bottom: 0.5rem; }
+
+    .footer-section a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-section a:hover { color: white; }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.3rem; }
+      .hero p { font-size: 1.1rem; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <a href="/" class="logo-text">OneSlurp</a>
+      <ul class="nav-links">
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/#download">Download</a></li>
+        <li><a href="/merch.html">Merch</a></li>
+        <li><a href="/privacy.html">Privacy</a></li>
+        <li><a href="/delete-account.html">Delete Account</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Merch is Coming Soon 🛍️</h1>
+      <p>We’re cooking up soup-worthy gear. Get ready for tees, stickers, and more.</p>
+      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+        <a class="btn btn-primary" href="/">🍜 Back to Home</a>
+        <a class="btn btn-secondary" href="mailto:oneslurp-app@proton.me?subject=Merch%20Updates">📩 Get Updates</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="content">
+    <div class="container">
+      <div class="card">
+        <h2>What to expect</h2>
+        <p>We’ll post the first drop here as soon as it’s ready. In the meantime:</p>
+        <ul class="list">
+          <li>Follow along for launch announcements</li>
+          <li>Send ideas for merch you’d actually wear</li>
+          <li>Check back soon</li>
+        </ul>
+        <p style="margin-top:1.5rem;">
+          Want something specific? Email us at
+          <a href="mailto:oneslurp-app@proton.me" style="color: var(--primary); font-weight:600; text-decoration:none;">
+            oneslurp-app@proton.me
+          </a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>OneSlurp</h3>
+        <p>The ultimate soup review app for enthusiasts who want to discover, rate, and share amazing soup experiences.</p>
+      </div>
+
+      <div class="footer-section">
+        <h3>Product</h3>
+        <ul>
+          <li><a href="/#features">Features</a></li>
+          <li><a href="/#download">Download</a></li>
+          <li><a href="/merch.html">Merch</a></li>
+          <li><a href="/privacy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Support</h3>
+        <ul>
+          <li><a href="mailto:oneslurp-app@proton.me">Contact Us</a></li>
+          <li><a href="/delete-account.html">Delete Account</a></li>
+          <li><a href="mailto:oneslurp-app@proton.me">Report Bug</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Connect</h3>
+        <ul>
+          <li><a href="mailto:oneslurp-app@proton.me">Email</a></li>
+          <li><a href="https://github.com/oneslurp">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 OneSlurp. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
