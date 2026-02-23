@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>End User License Agreement (EULA) - OneShake</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #5B2333;
+            --primary-light: #7A3B4E;
+            --primary-glow: #C4747D;
+            --cream: #FAF8F5;
+            --surface: #F5F0EB;
+            --text-primary: #2D2226;
+            --text-secondary: #6B5B5E;
+            --border: #E8E0DC;
+            --white: #FFFFFF;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background-color: var(--cream);
+        }
+
+        h1, h2, h3 { font-family: 'DM Serif Display', serif; }
+
+        /* ─── Navigation ─── */
+        nav {
+            background: rgba(250, 248, 245, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-text {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.6rem;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .logo-text span { font-size: 1.3rem; }
+
+        .nav-links {
+            display: flex;
+            gap: 1.75rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--primary); }
+        .nav-links .oneslurp-link { color: #FF6B35; font-weight: 600; }
+        .nav-links .oneslurp-link:hover { color: #E55A2B; }
+
+        /* ─── Page Header ─── */
+        .page-header {
+            background: linear-gradient(145deg, var(--primary) 0%, #3D1522 100%);
+            color: var(--white);
+            padding: 3.5rem 2rem;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 2.4rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header p {
+            font-size: 1.05rem;
+            opacity: 0.8;
+        }
+
+        /* ─── Content ─── */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 0 0 12px 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .last-updated {
+            color: var(--text-secondary);
+            font-style: italic;
+            font-size: 0.95em;
+            margin-bottom: 30px;
+            padding: 12px 16px;
+            background-color: var(--surface);
+            border-left: 4px solid var(--primary);
+            border-radius: 0 6px 6px 0;
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.6em;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            font-weight: 400;
+        }
+
+        h3 {
+            color: var(--text-primary);
+            font-size: 1.25em;
+            margin-top: 28px;
+            margin-bottom: 12px;
+            font-weight: 400;
+        }
+
+        p {
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        ul {
+            margin: 15px 0 15px 30px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        li strong {
+            color: var(--text-primary);
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .alert-box {
+            background-color: rgba(91, 35, 51, 0.05);
+            border-left: 4px solid var(--primary);
+            padding: 20px;
+            margin: 24px 0;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .alert-box h3 {
+            margin-top: 0;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .alert-box p {
+            margin-bottom: 0;
+            color: var(--text-secondary);
+        }
+
+        strong { color: var(--text-primary); }
+
+        .footer-section {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 2px solid var(--border);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 8px;
+            padding: 12px 24px;
+            background-color: var(--primary);
+            color: white !important;
+            border-radius: 10px;
+            text-decoration: none !important;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .back-link:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(91, 35, 51, 0.2);
+        }
+
+        /* ─── Site Footer ─── */
+        .site-footer {
+            background: var(--text-primary);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover { color: var(--white); }
+
+        .footer-copy {
+            color: rgba(255,255,255,0.4);
+            font-size: 0.8rem;
+        }
+
+        .footer-copy a {
+            color: #FF6B35;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 20px; }
+            .page-header h1 { font-size: 1.8rem; }
+            .nav-links { display: none; }
+            h2 { font-size: 1.4em; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="/one-shake.html" class="logo-text"><span>🥃</span> OneShake</a>
+            <ul class="nav-links">
+                <li><a href="/one-shake.html">Home</a></li>
+                <li><a href="/sip-privacy.html">Privacy Policy</a></li>
+                <li><a href="/sip-terms.html">Terms of Service</a></li>
+                <li><a href="/sipdelete-account.html">Delete Account</a></li>
+                <li><a href="mailto:oneslurp-app@proton.me">Contact</a></li>
+                <li><a href="/" class="oneslurp-link">🍜 OneSlurp</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>End User License Agreement</h1>
+        <p>EULA for the OneShake mobile application</p>
+    </section>
+
+    <div class="container">
+        <p class="last-updated">Last Updated: February 2026</p>
+
+        <p>This End User License Agreement ("Agreement") is a binding legal agreement between you and OneShake regarding your use of the OneShake mobile application (the "Service"). By installing, accessing, or using the Service, you signify that you have read, understood, and agree to be bound by this Agreement.</p>
+
+        <h2>1. Scope of License</h2>
+        <p>OneShake grants you a revocable, non-exclusive, non-transferable, limited license to download, install, and use the Application strictly in accordance with the terms of this Agreement.</p>
+
+        <h2>2. User-Generated Content</h2>
+        <p>The Service allows you to post reviews, photos, comments, and other content ("User Content"). You are solely responsible for the content you post.</p>
+
+        <div class="alert-box">
+            <h3>Zero Tolerance Policy</h3>
+            <p><strong>OneShake maintains a strict zero-tolerance policy for objectionable content and abusive behavior.</strong> Any user found violating these policies will have their content removed and their account terminated immediately.</p>
+        </div>
+
+        <h3>2.1 Objectionable Content</h3>
+        <p>You agree that you will not post any content that is:</p>
+        <ul>
+            <li><strong>Illegal:</strong> Any content that promotes illegal acts or violates any local, state, or federal laws.</li>
+            <li><strong>Offensive:</strong> Content that is defamatory, obscene, pornographic, vulgar, or offensive.</li>
+            <li><strong>Hateful:</strong> Content that promotes discrimination, bigotry, racism, hatred, harassment, or harm against any individual or group.</li>
+            <li><strong>Threatening:</strong> Content that threatens violence or promotes bullying and intimidation.</li>
+            <li><strong>Irresponsible:</strong> Content that promotes dangerous or excessive consumption of alcohol, underage drinking, or drinking and driving.</li>
+        </ul>
+
+        <h3>2.2 Content Moderation &amp; Enforcement</h3>
+        <p>To ensure a safe community, OneShake implements the following enforcement mechanisms:</p>
+        <ul>
+            <li><strong>Reporting:</strong> Users may flag objectionable content using the "Report" feature available on every review, comment, and profile.</li>
+            <li><strong>Blocking:</strong> Users may block other users to prevent interaction and hide their content.</li>
+            <li><strong>Review &amp; Removal:</strong> OneShake will review reported content within 24 hours and remove any content that violates this Agreement.</li>
+            <li><strong>Ejection:</strong> OneShake reserves the right to eject and ban any user who violates this Agreement without prior notice.</li>
+        </ul>
+
+        <h2>3. Age Requirement</h2>
+        <p>You must be at least 12 years of age to use this Application. The Application contains references to alcoholic beverages but does not sell, facilitate the purchase of, or promote the excessive consumption of alcohol. Users under the legal drinking age in their jurisdiction should not consume alcoholic beverages regardless of content viewed in the App.</p>
+
+        <h2>4. Alcohol Disclaimer</h2>
+        <p>OneShake is a review and social platform only. The Application:</p>
+        <ul>
+            <li>Does not sell or facilitate the sale of alcoholic beverages</li>
+            <li>Does not verify users' legal drinking age for alcohol consumption</li>
+            <li>Does not promote excessive or irresponsible drinking</li>
+            <li>Is not responsible for any user's decision to consume alcohol</li>
+        </ul>
+        <p>Users are solely responsible for complying with all applicable laws regarding the purchase and consumption of alcoholic beverages in their jurisdiction. Always drink responsibly.</p>
+
+        <h2>5. Termination</h2>
+        <p>This Agreement is effective until terminated by you or OneShake. Your rights under this Agreement will terminate automatically without notice from OneShake if you fail to comply with any term(s) of this Agreement. Upon termination of the Agreement, you shall cease all use of the Application and delete all copies of the Application from your devices.</p>
+
+        <h2>6. No Warranty</h2>
+        <p>YOU EXPRESSLY ACKNOWLEDGE AND AGREE THAT USE OF THE APPLICATION IS AT YOUR SOLE RISK. THE APPLICATION IS PROVIDED "AS IS" AND "AS AVAILABLE," WITH ALL FAULTS AND WITHOUT WARRANTY OF ANY KIND. ONESHAKE DOES NOT WARRANT THAT THE APPLICATION WILL BE UNINTERRUPTED, ERROR-FREE, OR FREE OF VIRUSES OR OTHER HARMFUL COMPONENTS.</p>
+
+        <h2>7. Limitation of Liability</h2>
+        <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL ONESHAKE BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, DATA, USE, OR GOODWILL, ARISING OUT OF OR IN CONNECTION WITH YOUR USE OF THE APPLICATION.</p>
+
+        <h2>8. Governing Law</h2>
+        <p>This Agreement shall be governed by and construed in accordance with the laws of the State of Pennsylvania, United States, without regard to its conflict of law provisions. Any disputes arising under this Agreement shall be subject to the exclusive jurisdiction of the courts located in Lehigh County, Pennsylvania.</p>
+
+        <h2>9. Contact Information</h2>
+        <p>If you have questions about this Agreement or wish to report a violation, please contact us at:</p>
+        <p><strong>Email:</strong> <a href="mailto:oneslurp-app@proton.me">oneslurp-app@proton.me</a></p>
+        <p><strong>App:</strong> OneShake</p>
+
+        <div class="footer-section">
+            <a href="/one-shake.html" class="back-link">🥃 Back to OneShake</a>
+        </div>
+    </div>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="/one-shake.html">🥃 OneShake Home</a>
+            <a href="/sip-privacy.html">Privacy Policy</a>
+            <a href="/sip-terms.html">Terms of Service</a>
+            <a href="/sipdelete-account.html">Delete Account</a>
+            <a href="mailto:oneslurp-app@proton.me">Contact Support</a>
+            <a href="/" style="color: #FF6B35;">🍜 OneSlurp</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 OneShake. Part of the <a href="/">OneSlurp</a> family.</p>
+    </footer>
+</body>
+</html>
