@@ -4,169 +4,292 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms of Service - OneSlurp</title>
+    <meta name="description" content="Terms of Service for the OneSlurp mobile application.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --primary: #FF6B35;
+            --primary-dark: #E55A2B;
+            --gray-50: #FAFAFA;
+            --gray-100: #F5F5F5;
+            --gray-200: #E0E0E0;
+            --gray-600: #666666;
+            --gray-900: #2C2C2C;
+            --oneshake-primary: #5B2333;
+            --oneshake-glow: #C4747D;
         }
-        
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Inter', sans-serif;
             line-height: 1.7;
-            color: #333;
-            background-color: #f9f9f9;
-            padding: 20px;
+            color: var(--gray-900);
+            background-color: var(--gray-50);
         }
-        
+
+        h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; }
+
+        /* ─── Navigation ─── */
+        nav {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-text {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--gray-600);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--primary); }
+
+        .nav-links .oneshake-link {
+            color: var(--oneshake-primary);
+            font-weight: 600;
+        }
+
+        .nav-links .oneshake-link:hover { color: var(--oneshake-glow); }
+
+        /* ─── Page Header ─── */
+        .page-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 3.5rem 2rem;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header p {
+            font-size: 1.05rem;
+            opacity: 0.9;
+        }
+
+        /* ─── Content ─── */
         .container {
             max-width: 900px;
             margin: 0 auto;
             background-color: white;
             padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-radius: 0 0 12px 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
         }
-        
-        h1 {
-            color: #FF6B35;
-            font-size: 2.5em;
-            border-bottom: 4px solid #FF6B35;
-            padding-bottom: 15px;
-            margin-bottom: 20px;
+
+        .last-updated {
+            color: var(--gray-600);
+            font-style: italic;
+            font-size: 0.95em;
+            margin-bottom: 30px;
+            padding: 12px 16px;
+            background-color: var(--gray-100);
+            border-left: 4px solid var(--primary);
+            border-radius: 0 6px 6px 0;
         }
-        
+
         h2 {
-            color: #FF6B35;
-            font-size: 1.8em;
+            color: var(--primary);
+            font-size: 1.6em;
+            font-weight: 700;
             margin-top: 40px;
             margin-bottom: 15px;
             padding-top: 20px;
-            border-top: 1px solid #eee;
+            border-top: 1px solid var(--gray-200);
         }
-        
+
         h3 {
-            color: #555;
-            font-size: 1.4em;
-            margin-top: 30px;
+            color: var(--gray-900);
+            font-size: 1.25em;
+            font-weight: 600;
+            margin-top: 28px;
             margin-bottom: 12px;
         }
-        
+
         h4 {
-            color: #666;
-            font-size: 1.2em;
+            color: var(--gray-600);
+            font-size: 1.1em;
+            font-weight: 600;
             margin-top: 20px;
             margin-bottom: 10px;
         }
-        
+
         p {
             margin-bottom: 15px;
             line-height: 1.7;
         }
-        
+
         ul {
             margin: 15px 0 15px 30px;
         }
-        
+
         li {
             margin-bottom: 10px;
             line-height: 1.6;
+            color: var(--gray-600);
         }
-        
+
+        li strong { color: var(--gray-900); }
+
         a {
-            color: #FF6B35;
+            color: var(--primary);
             text-decoration: none;
-            border-bottom: 1px solid transparent;
-            transition: border-color 0.3s;
+            transition: color 0.3s;
         }
-        
-        a:hover {
-            border-bottom-color: #FF6B35;
-        }
-        
-        .last-updated {
-            color: #666;
-            font-style: italic;
-            font-size: 0.95em;
-            margin-bottom: 30px;
-            padding: 10px;
-            background-color: #f5f5f5;
-            border-left: 4px solid #FF6B35;
-        }
-        
-        .footer {
-            margin-top: 50px;
-            padding-top: 30px;
-            border-top: 2px solid #eee;
-        }
-        
+
+        a:hover { text-decoration: underline; }
+
+        strong { color: var(--gray-900); }
+
         .contact-info {
-            background-color: #f9f9f9;
+            background-color: var(--gray-100);
             padding: 20px;
             border-radius: 8px;
             margin-top: 20px;
         }
-        
-        .contact-info strong {
-            color: #FF6B35;
+
+        .contact-info strong { color: var(--primary); }
+
+        .footer-section {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 2px solid var(--gray-200);
         }
-        
+
         .back-link {
-            display: inline-block;
-            margin-top: 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 8px;
             padding: 12px 24px;
-            background-color: #FF6B35;
+            background-color: var(--primary);
             color: white !important;
-            border-radius: 6px;
-            text-decoration: none;
-            transition: background-color 0.3s;
-            border: none !important;
+            border-radius: 10px;
+            text-decoration: none !important;
+            font-weight: 600;
+            transition: all 0.3s;
         }
-        
+
         .back-link:hover {
-            background-color: #e55a2b;
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.3);
         }
-        
-        strong {
-            color: #222;
+
+        /* ─── Site Footer ─── */
+        .site-footer {
+            background: var(--gray-900);
+            color: white;
+            padding: 2rem;
+            text-align: center;
         }
-        
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover { color: white; }
+
+        .footer-copy {
+            color: rgba(255,255,255,0.4);
+            font-size: 0.8rem;
+        }
+
         @media (max-width: 768px) {
-            .container {
-                padding: 20px;
-            }
-            
-            h1 {
-                font-size: 2em;
-            }
-            
-            h2 {
-                font-size: 1.5em;
-            }
+            .container { padding: 20px; }
+            .page-header h1 { font-size: 1.8rem; }
+            .nav-links { display: none; }
+            h2 { font-size: 1.4em; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="logo-text">OneSlurp</a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/privacy.html">Privacy Policy</a></li>
+                <li><a href="/eula.html">EULA</a></li>
+                <li><a href="/delete-account.html">Delete Account</a></li>
+                <li><a href="mailto:oneslurp-app@proton.me">Contact</a></li>
+                <li><a href="/one-shake.html" class="oneshake-link">🥃 OneShake</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
         <h1>Terms of Service</h1>
-        <p class="last-updated">Last Updated: January 2026</p>
-<strong>Last Updated: January 2026</strong>
+        <p>Please read these terms carefully before using OneSlurp</p>
+    </section>
+
+    <div class="container">
+        <p class="last-updated">Last Updated: February 2026</p>
+
 <h2>1. Acceptance of Terms</h2>
 <p>Welcome to OneSlurp ("we," "our," or "us"). By accessing or using the OneSlurp mobile application (the "App"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, please do not use the App.</p>
 <p>These Terms constitute a legally binding agreement between you and OneSlurp. We reserve the right to modify these Terms at any time. Your continued use of the App after any changes indicates your acceptance of the modified Terms.</p>
-<p>---</p>
+
 <h2>2. Description of Service</h2>
 <p>OneSlurp is a mobile application that allows users to:</p>
 <ul>
   <li>Create accounts and profiles</li>
-  <li>Rate and review soups from restaurants</li>
-  <li>Upload photos of soups (future feature)</li>
+  <li>Rate and review soups from restaurants on a 5–10 scale</li>
+  <li>Upload photos of soups as part of reviews</li>
   <li>Share reviews and photos with other users</li>
   <li>Search for restaurants near their location</li>
   <li>View reviews and photos posted by other users</li>
   <li>Track their personal soup review history</li>
+  <li>Connect with friends and engage with the community</li>
+  <li>Compete on leaderboards</li>
 </ul>
-<p>---</p>
+
 <h2>3. User Eligibility and Age Requirements</h2>
 <h3>3.1 All Ages Welcome</h3>
 <p>OneSlurp is available to users of all ages. There is no minimum age requirement to use the App.</p>
@@ -179,7 +302,7 @@
   <li>Be responsible for all activities conducted under the minor's account</li>
   <li>Ensure the minor complies with these Terms</li>
 </ul>
-<p>---</p>
+
 <h2>4. User Accounts</h2>
 <h3>4.1 Account Creation</h3>
 <p>To use certain features of the App, you must create an account by providing:</p>
@@ -206,7 +329,7 @@
 </ul>
 <h3>4.4 Account Termination</h3>
 <p>We reserve the right to suspend or terminate your account at any time, with or without notice, for any reason, including but not limited to violation of these Terms.</p>
-<p>---</p>
+
 <h2>5. User Content and Reviews</h2>
 <h3>5.1 Your Content</h3>
 <p>You retain all ownership rights to the content you post on OneSlurp, including reviews, ratings, notes, and any other user-generated content ("User Content").</p>
@@ -228,14 +351,14 @@
 </ul>
 <h3>5.4 Photos and Images</h3>
 <p>You may upload photos of soups, restaurants, and related content ("Photos") as part of your reviews.</p>
-<strong>Photo Ownership and Rights:</strong>
+<p><strong>Photo Ownership and Rights:</strong></p>
 <ul>
   <li>You retain ownership of all Photos you upload</li>
   <li>You grant OneSlurp the same license as described in Section 5.2 for all Photos</li>
   <li>You represent that you own or have permission to upload each Photo</li>
   <li>You are responsible for ensuring Photos do not violate others' rights</li>
 </ul>
-<strong>Photo Content Restrictions:</strong>
+<p><strong>Photo Content Restrictions:</strong></p>
 <p>You agree NOT to upload Photos that:</p>
 <ul>
   <li>Contain nudity or sexually explicit content</li>
@@ -246,25 +369,18 @@
   <li>Are unrelated to soups or restaurants</li>
   <li>Violate any law or these Terms</li>
 </ul>
-<strong>No Photo Moderation:</strong>
-<p>Similar to text reviews, Photos are NOT pre-screened or moderated before posting. You may encounter Photos that are:</p>
-<ul>
-  <li>Poor quality or irrelevant</li>
-  <li>Not actually of the soup or restaurant claimed</li>
-  <li>Offensive or inappropriate</li>
-  <li>Copyrighted material posted without permission</li>
-</ul>
-<p>You acknowledge and agree that OneSlurp is not responsible for Photos posted by users.</p>
-<strong>Photo Removal:</strong>
+<p><strong>No Photo Moderation:</strong></p>
+<p>Photos are NOT pre-screened or moderated before posting. You may encounter Photos that are poor quality, irrelevant, not actually of the soup or restaurant claimed, offensive, or copyrighted material posted without permission. You acknowledge and agree that OneSlurp is not responsible for Photos posted by users.</p>
+<p><strong>Photo Removal:</strong></p>
 <p>We reserve the right to remove Photos at any time for any reason, but have no obligation to do so.</p>
-<strong>Photo Storage:</strong>
+<p><strong>Photo Storage:</strong></p>
 <ul>
   <li>Photos are stored on our servers and third-party services</li>
   <li>We are not responsible for loss or corruption of Photos</li>
   <li>Photos may remain visible even after account deletion</li>
   <li>You should maintain your own backups</li>
 </ul>
-<strong>Camera and Photo Permissions:</strong>
+<p><strong>Camera and Photo Permissions:</strong></p>
 <p>The App will request permission to access your device camera and photo library. You can control these permissions in your device settings.</p>
 <h3>5.5 User Content Standards</h3>
 <p>While posting reviews and Photos, you agree NOT to post content that:</p>
@@ -283,8 +399,8 @@
   <li>Contains nude or semi-nude images</li>
   <li>Depicts minors in a suggestive manner</li>
 </ul>
-<h3>5.6 <strong>NO CONTENT MODERATION</strong></h3>
-<strong>IMPORTANT:</strong> OneSlurp does NOT actively monitor, review, or moderate User Content before it is posted. We do not pre-screen reviews, ratings, or any user-generated content. The ability to report content is available directly within the application and will notify administrators to review the specific content.
+<h3>5.6 Content Moderation</h3>
+<p><strong>IMPORTANT:</strong> OneSlurp does NOT actively monitor, review, or moderate User Content before it is posted. We do not pre-screen reviews, ratings, or any user-generated content. The ability to report content is available directly within the application and will notify administrators to review the specific content.</p>
 <p>You acknowledge and agree that:</p>
 <ul>
   <li>User Content is posted by users and does not reflect the views of OneSlurp</li>
@@ -294,25 +410,13 @@
   <li>Other users' reviews and ratings are their personal opinions and may not be accurate</li>
 </ul>
 <h3>5.7 Content Removal Rights</h3>
-<p>We reserve the right (but have no obligation) to:</p>
-<ul>
-  <li>Remove or disable access to any User Content at any time</li>
-  <li>Remove content that violates these Terms if we become aware of it</li>
-  <li>Remove content in response to legal requests or court orders</li>
-  <li>Remove content at our sole discretion</li>
-</ul>
-<p>We are under no obligation to:</p>
-<ul>
-  <li>Monitor User Content</li>
-  <li>Remove any specific content</li>
-  <li>Investigate complaints about content</li>
-  <li>Respond to content removal requests</li>
-</ul>
+<p>We reserve the right (but have no obligation) to remove or disable access to any User Content at any time, remove content that violates these Terms if we become aware of it, remove content in response to legal requests or court orders, or remove content at our sole discretion.</p>
+<p>We are under no obligation to monitor User Content, remove any specific content, investigate complaints about content, or respond to content removal requests.</p>
 <h3>5.8 Reporting Inappropriate Content</h3>
-<p>If you believe content (including Photos) violates these Terms or applicable laws, you may report it to us at oneslurp-app@proton.me. We will review reports but are not obligated to take action.</p>
+<p>If you believe content (including Photos) violates these Terms or applicable laws, you may report it using the in-app reporting feature or by contacting us at <a href="mailto:oneslurp-app@proton.me">oneslurp-app@proton.me</a>. We will review reports but are not obligated to take action.</p>
 <h3>5.9 Backup Your Content</h3>
 <p>We are not responsible for loss of User Content. You are responsible for maintaining backups of your content.</p>
-<p>---</p>
+
 <h2>6. Prohibited Conduct</h2>
 <p>You agree NOT to:</p>
 <h3>6.1 Misuse the App</h3>
@@ -347,7 +451,7 @@
   <li>Post irrelevant or repetitive content</li>
   <li>Send spam messages to other users</li>
 </ul>
-<p>---</p>
+
 <h2>7. Third-Party Services</h2>
 <h3>7.1 Google Places API</h3>
 <p>The App uses Google Places API to search for restaurants. Your use of location-based features is subject to Google's Terms of Service and Privacy Policy.</p>
@@ -357,13 +461,13 @@
 <p>The App displays advertisements provided by Google AdMob. Ad delivery is subject to Google's advertising policies.</p>
 <h3>7.4 Third-Party Links</h3>
 <p>The App may contain links to third-party websites or services. We are not responsible for the content, privacy practices, or terms of third-party sites.</p>
-<p>---</p>
+
 <h2>8. Location Services</h2>
 <h3>8.1 Location Data</h3>
 <p>The App uses your device's location to help you find nearby restaurants. Location data is used only for this purpose and is not stored permanently.</p>
 <h3>8.2 Permission</h3>
 <p>You can control location permissions through your device settings. Some features may not work if you deny location access.</p>
-<p>---</p>
+
 <h2>9. Intellectual Property</h2>
 <h3>9.1 OneSlurp Property</h3>
 <p>The App, including its design, features, graphics, code, and content (excluding User Content), is owned by OneSlurp and protected by copyright, trademark, and other intellectual property laws.</p>
@@ -377,7 +481,7 @@
   <li>Use the OneSlurp name, logo, or trademarks without permission</li>
   <li>Remove any copyright or proprietary notices</li>
 </ul>
-<p>---</p>
+
 <h2>10. Disclaimers and Limitation of Liability</h2>
 <h3>10.1 "AS IS" Basis</h3>
 <p>THE APP IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.</p>
@@ -391,7 +495,7 @@
   <li>Ratings are accurate or unbiased</li>
 </ul>
 <h3>10.3 User Content Disclaimer</h3>
-<strong>ONESLURP IS NOT RESPONSIBLE FOR USER CONTENT.</strong> All reviews, ratings, and opinions posted by users are solely the responsibility of the user who posted them. We do not endorse, verify, or guarantee the accuracy of any User Content.
+<p><strong>ONESLURP IS NOT RESPONSIBLE FOR USER CONTENT.</strong> All reviews, ratings, and opinions posted by users are solely the responsibility of the user who posted them. We do not endorse, verify, or guarantee the accuracy of any User Content.</p>
 <h3>10.4 Limitation of Liability</h3>
 <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, ONESLURP SHALL NOT BE LIABLE FOR:</p>
 <ul>
@@ -405,7 +509,7 @@
 </ul>
 <p>This limitation applies regardless of the legal theory (contract, tort, negligence, etc.) and even if we have been advised of the possibility of such damages.</p>
 <h3>10.5 Maximum Liability</h3>
-<p>OUR TOTAL LIABILITY TO YOU FOR ALL CLAIMS ARISING FROM OR RELATING TO THE APP SHALL NOT EXCEED THE GREATER OF (A) $100 USD OR (B) THE AMOUNT YOU PAID TO USE THE APP IN THE 12 MONTHS PRIOR TO THE CLAIM.</p>
+<p>OUR TOTAL LIABILITY TO YOU FOR ALL CLAIMS ARISING FROM OR RELATING TO THE APP SHALL NOT EXCEED THE AMOUNT YOU PAID TO USE THE APP IN THE 12 MONTHS PRIOR TO THE CLAIM.</p>
 <h3>10.6 Food Safety</h3>
 <p>ONESLURP IS NOT RESPONSIBLE FOR:</p>
 <ul>
@@ -415,7 +519,7 @@
   <li>Restaurant health code compliance</li>
 </ul>
 <p>Always verify allergen information directly with restaurants.</p>
-<p>---</p>
+
 <h2>11. Indemnification</h2>
 <p>You agree to indemnify, defend, and hold harmless OneSlurp, its affiliates, officers, directors, employees, and agents from and against any and all claims, liabilities, damages, losses, costs, expenses (including reasonable attorneys' fees) arising from or related to:</p>
 <ul>
@@ -425,10 +529,10 @@
   <li>Your violation of any rights of another party</li>
   <li>Your violation of any laws or regulations</li>
 </ul>
-<p>---</p>
+
 <h2>12. Data and Privacy</h2>
 <h3>12.1 Privacy Policy</h3>
-<p>Your use of the App is also governed by our Privacy Policy, which is incorporated into these Terms by reference. Please review our Privacy Policy to understand how we collect, use, and share your information.</p>
+<p>Your use of the App is also governed by our <a href="/privacy.html">Privacy Policy</a> and our <a href="/eula.html">End User License Agreement</a>, which are incorporated into these Terms by reference.</p>
 <h3>12.2 Data Collection</h3>
 <p>We collect:</p>
 <ul>
@@ -442,7 +546,7 @@
 </ul>
 <h3>12.3 Data Retention</h3>
 <p>We retain your data for as long as your account is active. Even after account deletion, your reviews and photos may remain visible to preserve the integrity of the review system.</p>
-<p>---</p>
+
 <h2>13. Advertising</h2>
 <h3>13.1 Advertisements</h3>
 <p>The App displays advertisements provided by Google AdMob. By using the App, you agree to receive advertisements.</p>
@@ -450,7 +554,7 @@
 <p>Ads may be personalized based on your interests and activity. You can control ad personalization through your device settings.</p>
 <h3>13.3 No Endorsement</h3>
 <p>We do not endorse any products or services advertised in the App.</p>
-<p>---</p>
+
 <h2>14. Children's Privacy (COPPA Compliance)</h2>
 <h3>14.1 Parental Consent</h3>
 <p>If you are under 13 years of age (or the applicable age in your jurisdiction), you may only use the App with the consent and supervision of a parent or legal guardian.</p>
@@ -461,23 +565,17 @@
 <ul>
   <li>Request access to their child's information</li>
   <li>Request deletion of their child's account</li>
-  <li>Contact us at oneslurp-app@proton.me</li>
+  <li>Contact us at <a href="mailto:oneslurp-app@proton.me">oneslurp-app@proton.me</a></li>
 </ul>
-<p>---</p>
+
 <h2>15. Geographic Restrictions</h2>
 <p>The App is controlled and operated from the United States. We make no representation that the App is appropriate or available in all locations. If you access the App from outside the United States, you do so at your own risk and are responsible for compliance with local laws.</p>
-<p>---</p>
+
 <h2>16. Termination</h2>
 <h3>16.1 Termination by You</h3>
-<p>You may stop using the App at any time. You may delete your account through the App settings or by contacting us.</p>
+<p>You may stop using the App at any time. You may delete your account by contacting us at <a href="mailto:oneslurp-app@proton.me">oneslurp-app@proton.me</a> or through the <a href="/delete-account.html">account deletion page</a>.</p>
 <h3>16.2 Termination by Us</h3>
-<p>We may suspend or terminate your access to the App at any time, with or without cause, with or without notice, for any reason including:</p>
-<ul>
-  <li>Violation of these Terms</li>
-  <li>Fraudulent or illegal activity</li>
-  <li>Extended inactivity</li>
-  <li>At our sole discretion</li>
-</ul>
+<p>We may suspend or terminate your access to the App at any time, with or without cause, with or without notice, for any reason including violation of these Terms, fraudulent or illegal activity, extended inactivity, or at our sole discretion.</p>
 <h3>16.3 Effect of Termination</h3>
 <p>Upon termination:</p>
 <ul>
@@ -486,36 +584,36 @@
   <li>Your User Content may remain visible on the App</li>
   <li>Sections of these Terms that by their nature should survive will survive (e.g., indemnification, disclaimers, limitation of liability)</li>
 </ul>
-<p>---</p>
+
 <h2>17. Dispute Resolution</h2>
 <h3>17.1 Governing Law</h3>
 <p>These Terms shall be governed by and construed in accordance with the laws of the State of Pennsylvania, United States, without regard to its conflict of law provisions.</p>
 <h3>17.2 Informal Resolution</h3>
-<p>Before filing a claim, you agree to try to resolve the dispute informally by contacting us at oneslurp-app@proton.me. We will attempt to resolve the dispute informally within 60 days.</p>
+<p>Before filing a claim, you agree to try to resolve the dispute informally by contacting us at <a href="mailto:oneslurp-app@proton.me">oneslurp-app@proton.me</a>. We will attempt to resolve the dispute informally within 60 days.</p>
 <h3>17.3 Arbitration Agreement</h3>
-<strong>PLEASE READ THIS SECTION CAREFULLY. IT AFFECTS YOUR LEGAL RIGHTS.</strong>
+<p><strong>PLEASE READ THIS SECTION CAREFULLY. IT AFFECTS YOUR LEGAL RIGHTS.</strong></p>
 <p>If we cannot resolve a dispute informally, you and OneSlurp agree to resolve any claims through final and binding arbitration, except as set forth below.</p>
-<strong>Arbitration Rules:</strong>
+<p><strong>Arbitration Rules:</strong></p>
 <ul>
   <li>Arbitration will be conducted by the American Arbitration Association (AAA)</li>
   <li>The arbitration will be held in Allentown, Pennsylvania</li>
   <li>The arbitrator's decision will be final and binding</li>
   <li>Each party will bear its own costs and fees</li>
 </ul>
-<strong>Exceptions to Arbitration:</strong>
+<p><strong>Exceptions to Arbitration:</strong></p>
 <ul>
   <li>Either party may seek injunctive relief in court</li>
   <li>Claims in small claims court (if they qualify)</li>
 </ul>
 <h3>17.4 Class Action Waiver</h3>
-<strong>YOU AND ONESLURP AGREE THAT EACH MAY BRING CLAIMS AGAINST THE OTHER ONLY IN YOUR OR ITS INDIVIDUAL CAPACITY AND NOT AS A PLAINTIFF OR CLASS MEMBER IN ANY PURPORTED CLASS OR REPRESENTATIVE PROCEEDING.</strong>
+<p><strong>YOU AND ONESLURP AGREE THAT EACH MAY BRING CLAIMS AGAINST THE OTHER ONLY IN YOUR OR ITS INDIVIDUAL CAPACITY AND NOT AS A PLAINTIFF OR CLASS MEMBER IN ANY PURPORTED CLASS OR REPRESENTATIVE PROCEEDING.</strong></p>
 <p>Neither you nor OneSlurp may participate in a class action, class arbitration, or other representative action.</p>
 <h3>17.5 Jurisdiction</h3>
 <p>If arbitration does not apply, you agree to submit to the personal jurisdiction of the state and federal courts located in Lehigh County, Pennsylvania for the purpose of litigating all such claims.</p>
-<p>---</p>
+
 <h2>18. General Provisions</h2>
 <h3>18.1 Entire Agreement</h3>
-<p>These Terms, together with our Privacy Policy, constitute the entire agreement between you and OneSlurp regarding the App and supersede all prior agreements.</p>
+<p>These Terms, together with our <a href="/privacy.html">Privacy Policy</a> and <a href="/eula.html">EULA</a>, constitute the entire agreement between you and OneSlurp regarding the App and supersede all prior agreements.</p>
 <h3>18.2 Severability</h3>
 <p>If any provision of these Terms is found to be unenforceable or invalid, that provision will be limited or eliminated to the minimum extent necessary, and the remaining provisions will remain in full force and effect.</p>
 <h3>18.3 Waiver</h3>
@@ -526,48 +624,48 @@
 <p>These Terms do not create any third-party beneficiary rights.</p>
 <h3>18.6 Force Majeure</h3>
 <p>We shall not be liable for any failure to perform our obligations due to causes beyond our reasonable control, including but not limited to acts of God, war, terrorism, pandemics, natural disasters, or government actions.</p>
-<h3>18.7 Headings</h3>
-<p>The section headings in these Terms are for convenience only and have no legal or contractual effect.</p>
-<h3>18.8 Changes to Terms</h3>
-<p>We reserve the right to modify these Terms at any time. We will notify you of material changes by:</p>
-<ul>
-  <li>Posting the updated Terms in the App</li>
-  <li>Updating the "Last Updated" date</li>
-  <li>Sending an email notification (if you have provided an email)</li>
-</ul>
-<p>Your continued use of the App after changes constitutes acceptance of the modified Terms.</p>
-<p>---</p>
+<h3>18.7 Changes to Terms</h3>
+<p>We reserve the right to modify these Terms at any time. We will notify you of material changes by posting the updated Terms in the App, updating the "Last Updated" date, and sending an email notification (if you have provided an email). Your continued use of the App after changes constitutes acceptance of the modified Terms.</p>
+
 <h2>19. Contact Information</h2>
 <p>If you have any questions about these Terms, please contact us:</p>
-<strong>Email:</strong> oneslurp-app@proton.me
-<strong>App Name:</strong> OneSlurp
-<strong>Last Updated:</strong> January 2026
-<p>---</p>
+<div class="contact-info">
+    <p><strong>Email:</strong> <a href="mailto:oneslurp-app@proton.me">oneslurp-app@proton.me</a></p>
+    <p><strong>App:</strong> OneSlurp</p>
+    <p><strong>Last Updated:</strong> February 2026</p>
+</div>
+
 <h2>20. Acknowledgment</h2>
 <p>BY USING ONESLURP, YOU ACKNOWLEDGE THAT:</p>
-<p>1. You have read and understood these Terms</p>
-<p>2. You agree to be bound by these Terms</p>
-<p>3. The App does not actively moderate User Content however there is the ability to report content to admins for review as well as block users directly within the application</p>
-<p>4. User Content may be inaccurate, inappropriate, or offensive</p>
-<p>5. You use the App at your own risk</p>
-<p>6. OneSlurp is not responsible for User Content or your reliance on it</p>
-<p>7. You are responsible for verifying information before acting on it</p>
-<p>8. Reviews are personal opinions and may not reflect actual quality</p>
-<p>9. You waive any claims against OneSlurp related to User Content</p>
-<strong>IF YOU DO NOT AGREE TO THESE TERMS, DO NOT USE THE APP.</strong>
-<p>---</p>
-<strong>END OF TERMS OF SERVICE</strong>
-        
-        <div class="footer">
-            <div class="contact-info">
-                <p><strong>Contact Us</strong></p>
-                <p>If you have any questions about this Terms of Service, please contact us:</p>
-                <p><strong>Email:</strong> <a href="mailto:oneslurp-app@proton.me">oneslurp-app@proton.me</a></p>
-                <p><strong>App:</strong> OneSlurp</p>
-            </div>
-            
-            <a href="index.html" class="back-link">← Back to Legal Documents</a>
+<ul>
+  <li>You have read and understood these Terms</li>
+  <li>You agree to be bound by these Terms</li>
+  <li>The App does not actively moderate User Content; however there is the ability to report content to admins for review as well as block users directly within the application</li>
+  <li>User Content may be inaccurate, inappropriate, or offensive</li>
+  <li>You use the App at your own risk</li>
+  <li>OneSlurp is not responsible for User Content or your reliance on it</li>
+  <li>You are responsible for verifying information before acting on it</li>
+  <li>Reviews are personal opinions and may not reflect actual quality</li>
+  <li>You waive any claims against OneSlurp related to User Content</li>
+</ul>
+<p><strong>IF YOU DO NOT AGREE TO THESE TERMS, DO NOT USE THE APP.</strong></p>
+
+        <div class="footer-section">
+            <a href="/" class="back-link">🍜 Back to OneSlurp</a>
         </div>
     </div>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="/">🍜 OneSlurp Home</a>
+            <a href="/privacy.html">Privacy Policy</a>
+            <a href="/eula.html">EULA</a>
+            <a href="/delete-account.html">Delete Account</a>
+            <a href="mailto:oneslurp-app@proton.me">Contact Support</a>
+            <a href="/one-shake.html" style="color: var(--oneshake-glow);">🥃 OneShake</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 OneSlurp. All rights reserved.</p>
+    </footer>
 </body>
 </html>
