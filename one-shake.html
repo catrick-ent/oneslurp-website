@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OneShake - Rate Every Drink, One Shake at a Time</title>
+    <meta name="description" content="Discover, rate, and share amazing cocktails, wines, beers, and spirits. Join the OneShake community today!">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="OneShake - The Ultimate Drink Review App">
+    <meta property="og:description" content="Rate every drink, one shake at a time. 🥃">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://one-slurp.com/one-shake.html">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #5B2333;
+            --primary-light: #7A3B4E;
+            --primary-glow: #C4747D;
+            --gold: #DAA520;
+            --gold-light: #F0D78C;
+            --cream: #FAF8F5;
+            --surface: #F5F0EB;
+            --text-primary: #2D2226;
+            --text-secondary: #6B5B5E;
+            --border: #E8E0DC;
+            --white: #FFFFFF;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--text-primary);
+            line-height: 1.6;
+            background: var(--cream);
+        }
+        
+        h1, h2, h3 { font-family: 'DM Serif Display', serif; }
+        
+        /* ─── Navigation ─── */
+        nav {
+            background: rgba(250, 248, 245, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-text {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.6rem;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        
+        .logo-text span { font-size: 1.3rem; }
+        
+        .nav-links {
+            display: flex;
+            gap: 1.75rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover { color: var(--primary); }
+        
+        .nav-links .oneslurp-link {
+            color: #FF6B35;
+            font-weight: 600;
+        }
+        
+        .nav-links .oneslurp-link:hover { color: #E55A2B; }
+        
+        /* ─── Hero ─── */
+        .hero {
+            background: linear-gradient(145deg, var(--primary) 0%, #3D1522 60%, #2A0F18 100%);
+            color: var(--white);
+            padding: 7rem 2rem 6rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(ellipse at 20% 50%, rgba(218, 165, 32, 0.08) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 30%, rgba(196, 116, 125, 0.12) 0%, transparent 50%);
+        }
+        
+        .hero::after {
+            content: '🥃';
+            position: absolute;
+            font-size: 22rem;
+            opacity: 0.06;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: gentleFloat 8s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes gentleFloat {
+            0%, 100% { transform: translate(-50%, -50%) rotate(0deg); }
+            50% { transform: translate(-50%, -53%) rotate(3deg); }
+        }
+        
+        .hero-content {
+            max-width: 780px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background: rgba(218, 165, 32, 0.15);
+            border: 1px solid rgba(218, 165, 32, 0.3);
+            color: var(--gold-light);
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            margin-bottom: 1.5rem;
+            animation: fadeInDown 0.8s ease-out;
+        }
+        
+        .hero h1 {
+            font-size: 3.8rem;
+            font-weight: 400;
+            margin-bottom: 1.25rem;
+            line-height: 1.15;
+            animation: fadeInUp 0.8s ease-out 0.1s both;
+        }
+        
+        .hero h1 em {
+            font-style: italic;
+            color: var(--primary-glow);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.85;
+            max-width: 560px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .download-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease-out 0.3s both;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.95rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .btn-app-store {
+            background: var(--white);
+            color: var(--primary);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+        
+        .btn-google-play {
+            background: rgba(255,255,255,0.12);
+            color: var(--white);
+            border: 1px solid rgba(255,255,255,0.25);
+            backdrop-filter: blur(4px);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+        }
+        
+        .btn-google-play:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        /* ─── Stats Bar ─── */
+        .stats-bar {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            padding: 2rem;
+        }
+        
+        .stats-grid {
+            max-width: 800px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-family: 'DM Serif Display', serif;
+            font-size: 2rem;
+            color: var(--primary);
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+        }
+        
+        /* ─── Features ─── */
+        .features {
+            padding: 6rem 2rem;
+            background: var(--cream);
+        }
+        
+        .container { max-width: 1200px; margin: 0 auto; }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.6rem;
+            font-weight: 400;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+        
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 520px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .feature-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--gold));
+            opacity: 0;
+            transition: opacity 0.35s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(91, 35, 51, 0.1);
+            border-color: transparent;
+        }
+        
+        .feature-card:hover::before { opacity: 1; }
+        
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, rgba(91, 35, 51, 0.08), rgba(218, 165, 32, 0.08));
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            margin-bottom: 1.25rem;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 0.6rem;
+            color: var(--text-primary);
+        }
+        
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.65;
+        }
+        
+        /* ─── How It Works ─── */
+        .how-it-works {
+            padding: 6rem 2rem;
+            background: var(--white);
+        }
+        
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .step {
+            text-align: center;
+            padding: 1.5rem;
+        }
+        
+        .step-number {
+            width: 52px;
+            height: 52px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.4rem;
+            margin: 0 auto 1.25rem;
+        }
+        
+        .step h3 {
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+        }
+        
+        .step p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+        
+        /* ─── Drink Types ─── */
+        .drink-types {
+            padding: 5rem 2rem;
+            background: linear-gradient(145deg, var(--primary) 0%, #3D1522 100%);
+            color: var(--white);
+        }
+        
+        .drink-types .section-header h2 { color: var(--white); }
+        .drink-types .section-header p { color: rgba(255,255,255,0.7); }
+        
+        .drinks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1.25rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .drink-tag {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 12px;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            transition: all 0.3s;
+            backdrop-filter: blur(4px);
+        }
+        
+        .drink-tag:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-2px);
+        }
+        
+        .drink-tag .emoji { font-size: 2.2rem; display: block; margin-bottom: 0.5rem; }
+        .drink-tag .name { font-weight: 600; font-size: 0.95rem; }
+        
+        /* ─── CTA ─── */
+        .cta {
+            background: var(--surface);
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+        
+        .cta-card {
+            max-width: 680px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 24px;
+            padding: 3.5rem;
+            border: 1px solid var(--border);
+            box-shadow: 0 20px 60px rgba(91, 35, 51, 0.06);
+        }
+        
+        .cta-card h2 {
+            font-size: 2.2rem;
+            font-weight: 400;
+            margin-bottom: 0.75rem;
+        }
+        
+        .cta-card p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+        
+        .btn-cta {
+            background: var(--primary);
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+        }
+        
+        .btn-cta:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(91, 35, 51, 0.25);
+        }
+        
+        /* ─── Footer ─── */
+        footer {
+            background: var(--text-primary);
+            color: var(--white);
+            padding: 3rem 2rem 2rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-glow);
+            font-family: 'DM Serif Display', serif;
+            font-weight: 400;
+            font-size: 1.1rem;
+        }
+        
+        .footer-section p {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        .footer-section ul { list-style: none; }
+        
+        .footer-section ul li { margin-bottom: 0.5rem; }
+        
+        .footer-section a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover { color: var(--white); }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            color: rgba(255,255,255,0.4);
+            font-size: 0.85rem;
+        }
+        
+        .footer-bottom a {
+            color: #FF6B35;
+            text-decoration: none;
+        }
+        
+        .footer-bottom a:hover { text-decoration: underline; }
+        
+        /* ─── Responsive ─── */
+        @media (max-width: 768px) {
+            .hero { padding: 5rem 1.5rem 4rem; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.05rem; }
+            .nav-links { display: none; }
+            .section-header h2 { font-size: 2rem; }
+            .stats-grid { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+            .stat-number { font-size: 1.5rem; }
+            .cta-card { padding: 2rem; }
+            .drinks-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="/one-shake.html" class="logo-text"><span>🥃</span> OneShake</a>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#download">Download</a></li>
+                <li><a href="/sip-privacy.html">Privacy</a></li>
+                <li><a href="/sipdelete-account.html">Delete Account</a></li>
+                <li><a href="/" class="oneslurp-link">🍜 OneSlurp</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">🥃 From the makers of OneSlurp</div>
+            <h1>Rate Every Drink,<br>One <em>Shake</em> at a Time</h1>
+            <p>Cocktails, wines, beers, spirits — rate them all. Share your reviews with friends and discover what everyone's drinking.</p>
+            <div class="download-buttons">
+                <a href="#" class="btn btn-app-store">
+                    🍎 Download on App Store
+                </a>
+                <a href="#" class="btn btn-google-play">
+                    📱 Get it on Google Play
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats-bar">
+        <div class="stats-grid">
+            <div>
+                <span class="stat-number">1–10</span>
+                <div class="stat-label">Precise rating scale</div>
+            </div>
+            <div>
+                <span class="stat-number">100+</span>
+                <div class="stat-label">Drink categories</div>
+            </div>
+            <div>
+                <span class="stat-number">Free</span>
+                <div class="stat-label">Download &amp; use</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Everything for the Drink Explorer</h2>
+                <p>Track every cocktail, wine, and beer — then share with your community</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🥃</div>
+                    <h3>Rate Any Drink</h3>
+                    <p>Score cocktails, wines, beers, and spirits on a precise 1–10 scale with 0.1 increments. More nuanced than simple stars.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📸</div>
+                    <h3>Photo Reviews</h3>
+                    <p>Snap a photo of your drink and add tasting notes — aroma, balance, finish, presentation. Remember every detail.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3>Social Feed</h3>
+                    <p>Follow friends, browse their reviews, and discover trending drinks. Switch between your friends' feed and global discoveries.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🏆</div>
+                    <h3>Leaderboards</h3>
+                    <p>Compete for Top Shaker status! Climb the all-time and monthly leaderboards as you rate more drinks.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🍸</div>
+                    <h3>Cheers &amp; Comments</h3>
+                    <p>Give "cheers" to reviews you love and join the conversation. Engage with a community of drink enthusiasts.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📍</div>
+                    <h3>Venue Search</h3>
+                    <p>Tag the bar, restaurant, or lounge where you had your drink. Location search powered by Google Places.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Smart Search</h3>
+                    <p>Search by drink name, spirit type, or venue. Find exactly what you're looking for across the community.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📤</div>
+                    <h3>Native Sharing</h3>
+                    <p>Share your reviews via text, social media, or any messaging app using your phone's native share sheet.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🌙</div>
+                    <h3>Dark Mode</h3>
+                    <p>Beautiful dark theme for comfortable browsing at dimly-lit bars or late-night scrolling. Easy on the eyes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>How It Works</h2>
+                <p>From first sip to shared review in four easy steps</p>
+            </div>
+            
+            <div class="steps-grid">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Pick Your Venue</h3>
+                    <p>Search for the bar or restaurant, or mark it as homemade</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Name Your Drink</h3>
+                    <p>Enter the drink name and select the spirit type</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Rate It</h3>
+                    <p>Slide to your rating from 1 to 10 and review the summary</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Share &amp; Post</h3>
+                    <p>Add tasting notes, a photo, and share with friends</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Drink Types -->
+    <section class="drink-types">
+        <div class="container">
+            <div class="section-header">
+                <h2>Rate Every Category</h2>
+                <p>From classic cocktails to craft brews, OneShake covers them all</p>
+            </div>
+            
+            <div class="drinks-grid">
+                <div class="drink-tag">
+                    <span class="emoji">🍸</span>
+                    <span class="name">Cocktails</span>
+                </div>
+                <div class="drink-tag">
+                    <span class="emoji">🍷</span>
+                    <span class="name">Wine</span>
+                </div>
+                <div class="drink-tag">
+                    <span class="emoji">🍺</span>
+                    <span class="name">Beer</span>
+                </div>
+                <div class="drink-tag">
+                    <span class="emoji">🥃</span>
+                    <span class="name">Whiskey</span>
+                </div>
+                <div class="drink-tag">
+                    <span class="emoji">🍹</span>
+                    <span class="name">Tiki &amp; Tropical</span>
+                </div>
+                <div class="drink-tag">
+                    <span class="emoji">🥂</span>
+                    <span class="name">Champagne</span>
+                </div>
+                <div class="drink-tag">
+                    <span class="emoji">🫧</span>
+                    <span class="name">Seltzers</span>
+                </div>
+                <div class="drink-tag">
+                    <span class="emoji">🍵</span>
+                    <span class="name">Non-Alcoholic</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" id="download">
+        <div class="cta-card">
+            <h2>Ready to Start Shaking?</h2>
+            <p>Download OneShake and never forget a great drink again. Free on iOS and Android.</p>
+            <a href="#" class="btn-cta">Download OneShake 🥃</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>OneShake</h3>
+                <p>The social app for drink lovers. Rate cocktails, wines, beers, and spirits. Share reviews with friends and discover amazing drinks.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Product</h3>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#download">Download</a></li>
+                    <li><a href="/sip-privacy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="mailto:oneslurp-app@proton.me">Contact Us</a></li>
+                    <li><a href="/sipdelete-account.html">Delete Account</a></li>
+                    <li><a href="mailto:oneslurp-app@proton.me">Report a Bug</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Family</h3>
+                <ul>
+                    <li><a href="/" style="color: #FF6B35;">🍜 OneSlurp — Soup Reviews</a></li>
+                    <li><a href="/one-shake.html">🥃 OneShake — Drink Reviews</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 OneShake. Part of the <a href="/">OneSlurp</a> family. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
