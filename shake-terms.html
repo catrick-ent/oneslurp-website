@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - OneShake</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #5B2333;
+            --primary-light: #7A3B4E;
+            --primary-glow: #C4747D;
+            --cream: #FAF8F5;
+            --surface: #F5F0EB;
+            --text-primary: #2D2226;
+            --text-secondary: #6B5B5E;
+            --border: #E8E0DC;
+            --white: #FFFFFF;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background-color: var(--cream);
+            padding: 0;
+        }
+
+        h1, h2, h3, h4 { font-family: 'DM Serif Display', serif; }
+
+        /* ─── Navigation ─── */
+        nav {
+            background: rgba(250, 248, 245, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-text {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.6rem;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .logo-text span { font-size: 1.3rem; }
+
+        .nav-links {
+            display: flex;
+            gap: 1.75rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--primary); }
+        .nav-links .oneslurp-link { color: #FF6B35; font-weight: 600; }
+        .nav-links .oneslurp-link:hover { color: #E55A2B; }
+
+        /* ─── Page Header ─── */
+        .page-header {
+            background: linear-gradient(145deg, var(--primary) 0%, #3D1522 100%);
+            color: var(--white);
+            padding: 3.5rem 2rem;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 2.4rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header p {
+            font-size: 1.05rem;
+            opacity: 0.8;
+        }
+
+        /* ─── Content ─── */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 0 0 12px 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.6em;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            font-weight: 400;
+        }
+
+        h3 {
+            color: var(--text-primary);
+            font-size: 1.25em;
+            margin-top: 28px;
+            margin-bottom: 12px;
+            font-weight: 400;
+        }
+
+        h4 {
+            color: var(--text-secondary);
+            font-size: 1.1em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-weight: 400;
+        }
+
+        p {
+            margin-bottom: 15px;
+            line-height: 1.7;
+            color: var(--text-primary);
+        }
+
+        ul {
+            margin: 15px 0 15px 30px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        a:hover {
+            border-bottom-color: var(--primary);
+        }
+
+        .last-updated {
+            color: var(--text-secondary);
+            font-style: italic;
+            font-size: 0.95em;
+            margin-bottom: 30px;
+            padding: 12px 16px;
+            background-color: var(--surface);
+            border-left: 4px solid var(--primary);
+            border-radius: 0 6px 6px 0;
+        }
+
+        .section-divider {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 30px 0;
+        }
+
+        strong {
+            color: var(--text-primary);
+        }
+
+        .footer-section {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 2px solid var(--border);
+        }
+
+        .contact-info {
+            background-color: var(--surface);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .contact-info strong {
+            color: var(--primary);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 24px;
+            padding: 12px 24px;
+            background-color: var(--primary);
+            color: white !important;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none !important;
+        }
+
+        .back-link:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(91, 35, 51, 0.2);
+        }
+
+        /* ─── Site Footer ─── */
+        .site-footer {
+            background: var(--text-primary);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            margin-top: 0;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.9rem;
+            border: none;
+        }
+
+        .footer-links a:hover { color: var(--white); }
+
+        .footer-copy {
+            color: rgba(255,255,255,0.4);
+            font-size: 0.8rem;
+        }
+
+        .footer-copy a {
+            color: #FF6B35;
+            text-decoration: none;
+            border: none;
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 20px; }
+            .page-header h1 { font-size: 1.8rem; }
+            .nav-links { display: none; }
+            h2 { font-size: 1.4em; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="/one-shake.html" class="logo-text"><span>🥃</span> OneShake</a>
+            <ul class="nav-links">
+                <li><a href="/one-shake.html">Home</a></li>
+                <li><a href="/sip-privacy.html">Privacy Policy</a></li>
+                <li><a href="/sipdelete-account.html">Delete Account</a></li>
+                <li><a href="mailto:oneslurp-app@proton.me">Contact</a></li>
+                <li><a href="/" class="oneslurp-link">🍜 OneSlurp</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>Terms of Service</h1>
+        <p>Please read these terms carefully before using OneShake</p>
+    </section>
+
+    <div class="container">
+        <p class="last-updated">Last Updated: February 2026</p>
+
+<h2>1. Acceptance of Terms</h2>
+<p>Welcome to OneShake ("we," "our," or "us"). By accessing or using the OneShake mobile application (the "App"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, please do not use the App.</p>
+<p>These Terms constitute a legally binding agreement between you and OneShake. We reserve the right to modify these Terms at any time. Your continued use of the App after any changes indicates your acceptance of the modified Terms.</p>
+
+<h2>2. Description of Service</h2>
+<p>OneShake is a mobile application that allows users to:</p>
+<ul>
+  <li>Create accounts and profiles</li>
+  <li>Rate and review drinks (cocktails, wines, beers, spirits, and other beverages)</li>
+  <li>Upload photos of drinks</li>
+  <li>Share reviews and photos with other users</li>
+  <li>Search for bars, restaurants, and venues near their location</li>
+  <li>View reviews and photos posted by other users</li>
+  <li>Track their personal drink review history</li>
+  <li>Connect with friends and engage with the community</li>
+  <li>Compete on leaderboards</li>
+</ul>
+
+<h2>3. User Eligibility and Age Requirements</h2>
+<h3>3.1 Age Requirement</h3>
+<p>OneShake is intended for users aged 12 and older. The App contains references to alcoholic beverages. While the App does not sell, facilitate the purchase of, or promote the excessive consumption of alcohol, users should be aware that content involves discussion and rating of alcoholic drinks.</p>
+<h3>3.2 Parental Responsibility</h3>
+<p>If you are under the age of 18 (or the age of majority in your jurisdiction), your parent or legal guardian must review and agree to these Terms on your behalf. Parents and guardians are responsible for monitoring and supervising their children's use of the App.</p>
+<h3>3.3 Parental Consent</h3>
+<p>By allowing a minor to use OneShake, the parent or guardian agrees to:</p>
+<ul>
+  <li>Supervise the minor's use of the App</li>
+  <li>Be responsible for all activities conducted under the minor's account</li>
+  <li>Ensure the minor complies with these Terms</li>
+</ul>
+<h3>3.4 Legal Drinking Age</h3>
+<p>OneShake does not sell alcohol or facilitate the purchase of alcohol. However, if you choose to consume alcoholic beverages referenced in reviews, you must comply with the legal drinking age in your jurisdiction. OneShake is not responsible for any user's decision to consume alcohol.</p>
+
+<h2>4. User Accounts</h2>
+<h3>4.1 Account Creation</h3>
+<p>To use certain features of the App, you must create an account by providing:</p>
+<ul>
+  <li>A valid email address</li>
+  <li>A username</li>
+  <li>A password</li>
+  <li>Optional: Display name</li>
+</ul>
+<h3>4.2 Account Security</h3>
+<p>You are responsible for:</p>
+<ul>
+  <li>Maintaining the confidentiality of your account credentials</li>
+  <li>All activities that occur under your account</li>
+  <li>Notifying us immediately of any unauthorized use of your account</li>
+</ul>
+<h3>4.3 Account Information</h3>
+<p>You agree to:</p>
+<ul>
+  <li>Provide accurate, current, and complete information</li>
+  <li>Update your information as necessary to keep it accurate</li>
+  <li>Not impersonate any person or entity</li>
+  <li>Not use another person's account without permission</li>
+</ul>
+<h3>4.4 Account Termination</h3>
+<p>We reserve the right to suspend or terminate your account at any time, with or without notice, for any reason, including but not limited to violation of these Terms.</p>
+
+<h2>5. User Content and Reviews</h2>
+<h3>5.1 Your Content</h3>
+<p>You retain all ownership rights to the content you post on OneShake, including reviews, ratings, notes, and any other user-generated content ("User Content").</p>
+<h3>5.2 License Grant to OneShake</h3>
+<p>By posting User Content, you grant OneShake a worldwide, non-exclusive, royalty-free, perpetual, irrevocable license to:</p>
+<ul>
+  <li>Use, display, reproduce, and distribute your User Content within the App</li>
+  <li>Make your User Content available to other users</li>
+  <li>Use your User Content for promotional purposes (e.g., featured reviews, marketing materials)</li>
+  <li>Modify or adapt your User Content for technical purposes (e.g., formatting)</li>
+</ul>
+<p>This license continues even if you delete your account, as your reviews may remain visible to preserve the integrity of the review system.</p>
+<h3>5.3 Content Ownership</h3>
+<p>You represent and warrant that:</p>
+<ul>
+  <li>You own or have the necessary rights to all User Content you post</li>
+  <li>Your User Content does not violate any third-party rights</li>
+  <li>You have the authority to grant the license described above</li>
+</ul>
+<h3>5.4 Photos and Images</h3>
+<p>You may upload photos of drinks, venues, and related content ("Photos") as part of your reviews.</p>
+<p><strong>Photo Ownership and Rights:</strong></p>
+<ul>
+  <li>You retain ownership of all Photos you upload</li>
+  <li>You grant OneShake the same license as described in Section 5.2 for all Photos</li>
+  <li>You represent that you own or have permission to upload each Photo</li>
+  <li>You are responsible for ensuring Photos do not violate others' rights</li>
+</ul>
+<p><strong>Photo Content Restrictions:</strong></p>
+<p>You agree NOT to upload Photos that:</p>
+<ul>
+  <li>Contain nudity or sexually explicit content</li>
+  <li>Depict illegal activities</li>
+  <li>Violate others' privacy (e.g., photos of identifiable people without consent)</li>
+  <li>Infringe copyright, trademark, or other intellectual property rights</li>
+  <li>Contain personal information (credit card numbers, addresses, etc.)</li>
+  <li>Are unrelated to drinks or venues</li>
+  <li>Violate any law or these Terms</li>
+</ul>
+<p><strong>No Photo Moderation:</strong></p>
+<p>Photos are NOT pre-screened or moderated before posting. You may encounter Photos that are poor quality, irrelevant, not actually of the drink or venue claimed, offensive, or copyrighted material posted without permission. You acknowledge and agree that OneShake is not responsible for Photos posted by users.</p>
+<p><strong>Photo Removal:</strong></p>
+<p>We reserve the right to remove Photos at any time for any reason, but have no obligation to do so.</p>
+<p><strong>Photo Storage:</strong></p>
+<ul>
+  <li>Photos are stored on our servers and third-party services</li>
+  <li>We are not responsible for loss or corruption of Photos</li>
+  <li>Photos may remain visible even after account deletion</li>
+  <li>You should maintain your own backups</li>
+</ul>
+<p><strong>Camera and Photo Permissions:</strong></p>
+<p>The App will request permission to access your device camera and photo library. You can control these permissions in your device settings.</p>
+<h3>5.5 User Content Standards</h3>
+<p>While posting reviews and Photos, you agree NOT to post content that:</p>
+<ul>
+  <li>Is false, misleading, or fraudulent</li>
+  <li>Violates any law or regulation</li>
+  <li>Infringes on intellectual property rights of others</li>
+  <li>Contains malware, viruses, or harmful code</li>
+  <li>Harasses, threatens, or abuses others</li>
+  <li>Contains hate speech or discriminatory content</li>
+  <li>Includes personal information of others without consent</li>
+  <li>Is sexually explicit or pornographic</li>
+  <li>Promotes illegal activities</li>
+  <li>Is spam or unsolicited advertising</li>
+  <li>Violates others' privacy or publicity rights</li>
+  <li>Contains nude or semi-nude images</li>
+  <li>Depicts minors in a suggestive manner</li>
+</ul>
+<h3>5.6 Content Moderation</h3>
+<p><strong>IMPORTANT:</strong> OneShake does NOT actively monitor, review, or moderate User Content before it is posted. We do not pre-screen reviews, ratings, or any user-generated content. The ability to report content is available directly within the application and will notify administrators to review the specific content.</p>
+<p>You acknowledge and agree that:</p>
+<ul>
+  <li>User Content is posted by users and does not reflect the views of OneShake</li>
+  <li>OneShake is not responsible for the accuracy, appropriateness, or legality of User Content</li>
+  <li>You may encounter content that you find offensive, inappropriate, or inaccurate</li>
+  <li>You use the App and view User Content at your own risk</li>
+  <li>Other users' reviews and ratings are their personal opinions and may not be accurate</li>
+</ul>
+<h3>5.7 Content Removal Rights</h3>
+<p>We reserve the right (but have no obligation) to remove or disable access to any User Content at any time, remove content that violates these Terms, remove content in response to legal requests, or remove content at our sole discretion.</p>
+<h3>5.8 Reporting Inappropriate Content</h3>
+<p>If you believe content (including Photos) violates these Terms or applicable laws, you may report it using the in-app reporting feature or by contacting us at <a href="mailto:oneslurp-app@proton.me">oneslurp-app@proton.me</a>. We will review reports but are not obligated to take action.</p>
+<h3>5.9 Backup Your Content</h3>
+<p>We are not responsible for loss of User Content. You are responsible for maintaining backups of your content.</p>
+
+<h2>6. Prohibited Conduct</h2>
+<p>You agree NOT to:</p>
+<h3>6.1 Misuse the App</h3>
+<ul>
+  <li>Use the App for any illegal purpose</li>
+  <li>Violate any local, state, national, or international law</li>
+  <li>Attempt to gain unauthorized access to the App or other users' accounts</li>
+  <li>Interfere with or disrupt the App's functionality</li>
+  <li>Use automated systems (bots, scrapers) to access the App</li>
+  <li>Reverse engineer or attempt to extract source code</li>
+  <li>Circumvent any security features</li>
+</ul>
+<h3>6.2 Abuse Other Users</h3>
+<ul>
+  <li>Harass, intimidate, or threaten other users</li>
+  <li>Post content intended to harm, defame, or abuse others</li>
+  <li>Impersonate other users or entities</li>
+  <li>Collect personal information about other users without consent</li>
+</ul>
+<h3>6.3 Manipulate Reviews</h3>
+<ul>
+  <li>Post fake or fraudulent reviews</li>
+  <li>Post reviews for drinks or venues you haven't actually tried or visited</li>
+  <li>Post reviews in exchange for compensation (unless disclosed)</li>
+  <li>Create multiple accounts to manipulate ratings</li>
+  <li>Post reviews on behalf of others without disclosure</li>
+</ul>
+<h3>6.4 Spam and Advertising</h3>
+<ul>
+  <li>Post unsolicited advertising or promotional content</li>
+  <li>Use the App to sell products or services</li>
+  <li>Post irrelevant or repetitive content</li>
+  <li>Send spam messages to other users</li>
+</ul>
+
+<h2>7. Third-Party Services</h2>
+<h3>7.1 Google Places API</h3>
+<p>The App uses Google Places API to search for bars, restaurants, and venues. Your use of location-based features is subject to Google's Terms of Service and Privacy Policy.</p>
+<h3>7.2 Supabase</h3>
+<p>User data is stored using Supabase. By using the App, you acknowledge that your data will be processed according to Supabase's terms and privacy practices.</p>
+<h3>7.3 Google AdMob</h3>
+<p>The App displays advertisements provided by Google AdMob. Ad delivery is subject to Google's advertising policies.</p>
+<h3>7.4 Third-Party Links</h3>
+<p>The App may contain links to third-party websites or services. We are not responsible for the content, privacy practices, or terms of third-party sites.</p>
+
+<h2>8. Location Services</h2>
+<h3>8.1 Location Data</h3>
+<p>The App uses your device's location to help you find nearby bars, restaurants, and venues. Location data is used only for this purpose and is not stored permanently.</p>
+<h3>8.2 Permission</h3>
+<p>You can control location permissions through your device settings. Some features may not work if you deny location access.</p>
+
+<h2>9. Intellectual Property</h2>
+<h3>9.1 OneShake Property</h3>
+<p>The App, including its design, features, graphics, code, and content (excluding User Content), is owned by OneShake and protected by copyright, trademark, and other intellectual property laws.</p>
+<h3>9.2 Limited License</h3>
+<p>We grant you a limited, non-exclusive, non-transferable, revocable license to use the App for personal, non-commercial purposes.</p>
+<h3>9.3 Restrictions</h3>
+<p>You may not:</p>
+<ul>
+  <li>Copy, modify, or distribute the App</li>
+  <li>Create derivative works based on the App</li>
+  <li>Use the OneShake name, logo, or trademarks without permission</li>
+  <li>Remove any copyright or proprietary notices</li>
+</ul>
+
+<h2>10. Disclaimers and Limitation of Liability</h2>
+<h3>10.1 "AS IS" Basis</h3>
+<p>THE APP IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.</p>
+<h3>10.2 No Warranty of Accuracy</h3>
+<p>We do not warrant that:</p>
+<ul>
+  <li>The App will be uninterrupted, secure, or error-free</li>
+  <li>User Content is accurate, reliable, or appropriate</li>
+  <li>Venue information is current or correct</li>
+  <li>Reviews reflect actual experiences</li>
+  <li>Ratings are accurate or unbiased</li>
+</ul>
+<h3>10.3 User Content Disclaimer</h3>
+<p><strong>ONESHAKE IS NOT RESPONSIBLE FOR USER CONTENT.</strong> All reviews, ratings, and opinions posted by users are solely the responsibility of the user who posted them. We do not endorse, verify, or guarantee the accuracy of any User Content.</p>
+<h3>10.4 Limitation of Liability</h3>
+<p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, ONESHAKE SHALL NOT BE LIABLE FOR:</p>
+<ul>
+  <li>Any indirect, incidental, special, consequential, or punitive damages</li>
+  <li>Loss of profits, data, use, or goodwill</li>
+  <li>Damages resulting from User Content</li>
+  <li>Damages arising from your use or inability to use the App</li>
+  <li>Any content you encounter on the App</li>
+  <li>Actions taken based on reviews or ratings</li>
+  <li>Health issues, allergies, illness, or injury from drinks or venues you visit</li>
+</ul>
+<p>This limitation applies regardless of the legal theory (contract, tort, negligence, etc.) and even if we have been advised of the possibility of such damages.</p>
+<h3>10.5 Maximum Liability</h3>
+<p>OUR TOTAL LIABILITY TO YOU FOR ALL CLAIMS ARISING FROM OR RELATING TO THE APP SHALL NOT EXCEED THE GREATER OF (A) $100 USD OR (B) THE AMOUNT YOU PAID TO USE THE APP IN THE 12 MONTHS PRIOR TO THE CLAIM.</p>
+<h3>10.6 Drink Safety and Alcohol Disclaimer</h3>
+<p>ONESHAKE IS NOT RESPONSIBLE FOR:</p>
+<ul>
+  <li>The quality, safety, or preparation of any drinks at any venue</li>
+  <li>Allergic reactions, illness, or injury from consuming any beverages</li>
+  <li>Accuracy of menu or ingredient information</li>
+  <li>Venue health code compliance</li>
+  <li>Any consequences of alcohol consumption</li>
+  <li>Users' decisions to consume alcoholic beverages</li>
+</ul>
+<p>Always drink responsibly. Always verify allergen and ingredient information directly with venues. Never drink and drive.</p>
+
+<h2>11. Indemnification</h2>
+<p>You agree to indemnify, defend, and hold harmless OneShake, its affiliates, officers, directors, employees, and agents from and against any and all claims, liabilities, damages, losses, costs, expenses (including reasonable attorneys' fees) arising from or related to:</p>
+<ul>
+  <li>Your use of the App</li>
+  <li>Your User Content</li>
+  <li>Your violation of these Terms</li>
+  <li>Your violation of any rights of another party</li>
+  <li>Your violation of any laws or regulations</li>
+</ul>
+
+<h2>12. Data and Privacy</h2>
+<h3>12.1 Privacy Policy</h3>
+<p>Your use of the App is also governed by our <a href="/sip-privacy.html">Privacy Policy</a>, which is incorporated into these Terms by reference.</p>
+<h3>12.2 Data Collection</h3>
+<p>We collect:</p>
+<ul>
+  <li>Account information (email, username, display name)</li>
+  <li>Location data (when you search for venues)</li>
+  <li>User Content (reviews, ratings, notes, photos)</li>
+  <li>Photos and images uploaded by users</li>
+  <li>Usage data and analytics</li>
+  <li>Advertising identifiers (for AdMob)</li>
+  <li>Camera and photo library access (for photo uploads)</li>
+</ul>
+<h3>12.3 Data Retention</h3>
+<p>We retain your data for as long as your account is active. Even after account deletion, your reviews and photos may remain visible to preserve the integrity of the review system.</p>
+
+<h2>13. Advertising</h2>
+<h3>13.1 Advertisements</h3>
+<p>The App displays advertisements provided by Google AdMob. By using the App, you agree to receive advertisements.</p>
+<h3>13.2 Ad Personalization</h3>
+<p>Ads may be personalized based on your interests and activity. You can control ad personalization through your device settings.</p>
+<h3>13.3 No Endorsement</h3>
+<p>We do not endorse any products or services advertised in the App.</p>
+
+<h2>14. Children's Privacy (COPPA Compliance)</h2>
+<h3>14.1 Age Restriction</h3>
+<p>OneShake is intended for users aged 12 and older. If you are under 13 years of age (or the applicable age in your jurisdiction), you may only use the App with the consent and supervision of a parent or legal guardian.</p>
+<h3>14.2 Data from Children</h3>
+<p>We do not knowingly collect personal information from children under 13 without parental consent. If we learn that we have collected information from a child under 13 without parental consent, we will delete it.</p>
+<h3>14.3 Parental Control</h3>
+<p>Parents can:</p>
+<ul>
+  <li>Request access to their child's information</li>
+  <li>Request deletion of their child's account</li>
+  <li>Contact us at <a href="mailto:oneslurp-app@proton.me">oneslurp-app@proton.me</a></li>
+</ul>
+
+<h2>15. Geographic Restrictions</h2>
+<p>The App is controlled and operated from the United States. We make no representation that the App is appropriate or available in all locations. If you access the App from outside the United States, you do so at your own risk and are responsible for compliance with local laws.</p>
+
+<h2>16. Termination</h2>
+<h3>16.1 Termination by You</h3>
+<p>You may stop using the App at any time. You may delete your account by contacting us at <a href="mailto:oneslurp-app@proton.me">oneslurp-app@proton.me</a> or through the <a href="/sipdelete-account.html">account deletion page</a>.</p>
+<h3>16.2 Termination by Us</h3>
+<p>We may suspend or terminate your access to the App at any time, with or without cause, with or without notice, for any reason including violation of these Terms, fraudulent or illegal activity, extended inactivity, or at our sole discretion.</p>
+<h3>16.3 Effect of Termination</h3>
+<p>Upon termination:</p>
+<ul>
+  <li>Your right to use the App immediately ceases</li>
+  <li>Your account will be deactivated</li>
+  <li>Your User Content may remain visible on the App</li>
+  <li>Sections of these Terms that by their nature should survive will survive (e.g., indemnification, disclaimers, limitation of liability)</li>
+</ul>
+
+<h2>17. Dispute Resolution</h2>
+<h3>17.1 Governing Law</h3>
+<p>These Terms shall be governed by and construed in accordance with the laws of the State of Pennsylvania, United States, without regard to its conflict of law provisions.</p>
+<h3>17.2 Informal Resolution</h3>
+<p>Before filing a claim, you agree to try to resolve the dispute informally by contacting us at <a href="mailto:oneslurp-app@proton.me">oneslurp-app@proton.me</a>. We will attempt to resolve the dispute informally within 60 days.</p>
+<h3>17.3 Arbitration Agreement</h3>
+<p><strong>PLEASE READ THIS SECTION CAREFULLY. IT AFFECTS YOUR LEGAL RIGHTS.</strong></p>
+<p>If we cannot resolve a dispute informally, you and OneShake agree to resolve any claims through final and binding arbitration, except as set forth below.</p>
+<p><strong>Arbitration Rules:</strong></p>
+<ul>
+  <li>Arbitration will be conducted by the American Arbitration Association (AAA)</li>
+  <li>The arbitration will be held in Allentown, Pennsylvania</li>
+  <li>The arbitrator's decision will be final and binding</li>
+  <li>Each party will bear its own costs and fees</li>
+</ul>
+<p><strong>Exceptions to Arbitration:</strong></p>
+<ul>
+  <li>Either party may seek injunctive relief in court</li>
+  <li>Claims in small claims court (if they qualify)</li>
+</ul>
+<h3>17.4 Class Action Waiver</h3>
+<p><strong>YOU AND ONESHAKE AGREE THAT EACH MAY BRING CLAIMS AGAINST THE OTHER ONLY IN YOUR OR ITS INDIVIDUAL CAPACITY AND NOT AS A PLAINTIFF OR CLASS MEMBER IN ANY PURPORTED CLASS OR REPRESENTATIVE PROCEEDING.</strong></p>
+<p>Neither you nor OneShake may participate in a class action, class arbitration, or other representative action.</p>
+<h3>17.5 Jurisdiction</h3>
+<p>If arbitration does not apply, you agree to submit to the personal jurisdiction of the state and federal courts located in Lehigh County, Pennsylvania for the purpose of litigating all such claims.</p>
+
+<h2>18. General Provisions</h2>
+<h3>18.1 Entire Agreement</h3>
+<p>These Terms, together with our Privacy Policy, constitute the entire agreement between you and OneShake regarding the App and supersede all prior agreements.</p>
+<h3>18.2 Severability</h3>
+<p>If any provision of these Terms is found to be unenforceable or invalid, that provision will be limited or eliminated to the minimum extent necessary, and the remaining provisions will remain in full force and effect.</p>
+<h3>18.3 Waiver</h3>
+<p>Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights.</p>
+<h3>18.4 Assignment</h3>
+<p>You may not assign or transfer these Terms without our prior written consent. We may assign these Terms without restriction.</p>
+<h3>18.5 No Third-Party Beneficiaries</h3>
+<p>These Terms do not create any third-party beneficiary rights.</p>
+<h3>18.6 Force Majeure</h3>
+<p>We shall not be liable for any failure to perform our obligations due to causes beyond our reasonable control, including but not limited to acts of God, war, terrorism, pandemics, natural disasters, or government actions.</p>
+<h3>18.7 Changes to Terms</h3>
+<p>We reserve the right to modify these Terms at any time. We will notify you of material changes by posting the updated Terms in the App, updating the "Last Updated" date, and sending an email notification (if you have provided an email). Your continued use of the App after changes constitutes acceptance of the modified Terms.</p>
+
+<h2>19. Contact Information</h2>
+<p>If you have any questions about these Terms, please contact us:</p>
+<div class="contact-info">
+    <p><strong>Email:</strong> <a href="mailto:oneslurp-app@proton.me">oneslurp-app@proton.me</a></p>
+    <p><strong>App:</strong> OneShake</p>
+    <p><strong>Last Updated:</strong> February 2026</p>
+</div>
+
+<h2>20. Acknowledgment</h2>
+<p>BY USING ONESHAKE, YOU ACKNOWLEDGE THAT:</p>
+<ul>
+  <li>You have read and understood these Terms</li>
+  <li>You agree to be bound by these Terms</li>
+  <li>The App does not actively moderate User Content; however there is the ability to report content to admins for review as well as block users directly within the application</li>
+  <li>User Content may be inaccurate, inappropriate, or offensive</li>
+  <li>You use the App at your own risk</li>
+  <li>OneShake is not responsible for User Content or your reliance on it</li>
+  <li>You are responsible for verifying information before acting on it</li>
+  <li>Reviews are personal opinions and may not reflect actual quality</li>
+  <li>You waive any claims against OneShake related to User Content</li>
+  <li>OneShake does not sell, promote, or facilitate the purchase of alcohol</li>
+</ul>
+<p><strong>IF YOU DO NOT AGREE TO THESE TERMS, DO NOT USE THE APP.</strong></p>
+
+        <div class="footer-section">
+            <a href="/one-shake.html" class="back-link">🥃 Back to OneShake</a>
+        </div>
+    </div>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="/one-shake.html">🥃 OneShake Home</a>
+            <a href="/sip-privacy.html">Privacy Policy</a>
+            <a href="/sipdelete-account.html">Delete Account</a>
+            <a href="mailto:oneslurp-app@proton.me">Contact Support</a>
+            <a href="/" style="color: #FF6B35;">🍜 OneSlurp</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 OneShake. Part of the <a href="/">OneSlurp</a> family.</p>
+    </footer>
+</body>
+</html>
