@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OneSlurp & OneShake — Download</title>
+    <title>OneSlurp & OneShake - Download</title>
     <meta name="description" content="Download OneSlurp (soup reviews) and OneShake (drink reviews). Available on iOS and Android beta.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,7 +34,6 @@
             overflow-x: hidden;
         }
 
-        /* Ambient background */
         body::before {
             content: '';
             position: fixed;
@@ -56,7 +55,6 @@
 
         .page { position: relative; z-index: 1; }
 
-        /* ── Header ───────────────────────────── */
         header {
             text-align: center;
             padding: 60px 24px 20px;
@@ -79,7 +77,6 @@
             line-height: 1.5;
         }
 
-        /* ── App switcher tabs ────────────────── */
         .tabs {
             display: flex;
             justify-content: center;
@@ -105,7 +102,8 @@
             justify-content: center;
             gap: 8px;
         }
-        .tab .tab-icon { font-size: 22px; }
+        .tab .tab-icon { font-size: 22px; pointer-events: none; }
+        .tab .tab-img { width: 24px; height: 24px; border-radius: 6px; pointer-events: none; }
         .tab:hover { border-color: var(--text-muted); }
         .tab.active-slurp {
             border-color: var(--slurp-primary);
@@ -120,7 +118,6 @@
             box-shadow: 0 0 24px rgba(184, 134, 11, 0.12);
         }
 
-        /* ── App panels ──────────────────────── */
         .panel-container {
             max-width: 500px;
             margin: 0 auto;
@@ -134,7 +131,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* ── App hero ─────────────────────────── */
         .app-hero {
             text-align: center;
             padding: 32px 0 24px;
@@ -173,7 +169,6 @@
             margin-top: 4px;
         }
 
-        /* ── Sections ─────────────────────────── */
         .section {
             background: var(--surface);
             border: 1px solid var(--border);
@@ -204,7 +199,6 @@
         .badge-live { background: #22C55E; color: #052E16; }
         .badge-beta { background: #F59E0B; color: #451A03; }
 
-        /* ── Buttons ──────────────────────────── */
         .dl-btn {
             display: flex;
             align-items: center;
@@ -223,19 +217,13 @@
         }
         .dl-btn svg { flex-shrink: 0; }
 
-        .dl-btn-apple {
-            background: #fff;
-            color: #000;
-        }
+        .dl-btn-apple { background: #fff; color: #000; }
         .dl-btn-apple:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(255,255,255,0.15);
         }
 
-        .dl-btn-android {
-            background: #3DDC84;
-            color: #003D1A;
-        }
+        .dl-btn-android { background: #3DDC84; color: #003D1A; }
         .dl-btn-android:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(61, 220, 132, 0.2);
@@ -259,7 +247,6 @@
         .or-divider::before { left: 0; }
         .or-divider::after { right: 0; }
 
-        /* ── Form ─────────────────────────────── */
         .form-label {
             display: block;
             color: var(--text-muted);
@@ -321,17 +308,11 @@
             margin-top: 14px;
         }
 
-        /* ── Footer ───────────────────────────── */
         footer {
             text-align: center;
             padding: 32px 24px 48px;
             color: var(--text-muted);
             font-size: 13px;
-        }
-        footer a {
-            color: var(--text-muted);
-            text-decoration: underline;
-            text-underline-offset: 2px;
         }
 
         @media (max-width: 480px) {
@@ -345,25 +326,22 @@
 <div class="page">
 
     <header>
-        <h1><span class="slurp-word">OneSlurp</span> & <span class="shake-word">OneShake</span></h1>
+        <h1><span class="slurp-word">OneSlurp</span> &amp; <span class="shake-word">OneShake</span></h1>
         <p>Rate every soup. Rate every drink. Two apps, one community at a time.</p>
     </header>
 
-    <!-- ── App Tabs ──────────────────────── -->
     <div class="tabs">
-        <button class="tab active-slurp" id="tabSlurp" onclick="switchApp('slurp')">
+        <button class="tab active-slurp" id="tabSlurp" type="button">
             <span class="tab-icon">🍜</span> OneSlurp
         </button>
-        <button class="tab" id="tabShake" onclick="switchApp('shake')">
-            <img src="oneshake-icon.png" alt="" style="width:24px;height:24px;border-radius:6px;"> OneShake
+        <button class="tab" id="tabShake" type="button">
+            <img class="tab-img" src="oneshake-icon.png" alt=""> OneShake
         </button>
     </div>
 
     <div class="panel-container">
 
-        <!-- ══════════════════════════════════ -->
-        <!-- ── ONESLURP PANEL ────────────── -->
-        <!-- ══════════════════════════════════ -->
+        <!-- ONESLURP PANEL -->
         <div class="panel active" id="panelSlurp">
             <div class="app-hero">
                 <div class="app-icon slurp">🍜</div>
@@ -371,7 +349,6 @@
                 <div class="app-tagline">Community, one slurp at a time</div>
             </div>
 
-            <!-- iOS -->
             <div class="section">
                 <div class="section-label">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" rx="2" width="14" height="20"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg>
@@ -386,7 +363,6 @@
                 <p class="info-text">Available now — start rating soups today!</p>
             </div>
 
-            <!-- Android -->
             <div class="section">
                 <div class="section-label">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" rx="2" width="14" height="20"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg>
@@ -401,22 +377,20 @@
 
                 <div class="or-divider">or</div>
 
-                <form id="slurpForm" onsubmit="handleFormSubmit(event, 'slurp')">
+                <form id="slurpForm">
                     <label class="form-label" for="slurpEmail">Request Android access with your Play Store Gmail</label>
                     <input type="email" id="slurpEmail" class="form-input slurp-focus" placeholder="your@gmail.com" required>
                     <button type="submit" class="submit-btn slurp" id="slurpSubmit">Request Beta Access</button>
                 </form>
 
-                <div class="msg-box msg-success" id="slurpSuccess">✅ Thanks! Your request has been submitted. Check your email for the beta invite link.</div>
-                <div class="msg-box msg-error" id="slurpError">⚠️ There was an error. Please email directly at <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="27484942544b5255570a46575767575548534849094a42">[email&#160;protected]</a></div>
+                <div class="msg-box msg-success" id="slurpSuccess">&#x2705; Thanks! Your request has been submitted. Check your email for the beta invite link.</div>
+                <div class="msg-box msg-error" id="slurpError">&#x26A0;&#xFE0F; There was an error. Please email directly at oneslurp-app&#64;proton.me</div>
 
                 <p class="info-text">Help us work towards a full Google Play Store release!</p>
             </div>
         </div>
 
-        <!-- ══════════════════════════════════ -->
-        <!-- ── ONESHAKE PANEL ────────────── -->
-        <!-- ══════════════════════════════════ -->
+        <!-- ONESHAKE PANEL -->
         <div class="panel" id="panelShake">
             <div class="app-hero">
                 <div class="app-icon shake"><img src="oneshake-icon.png" alt="OneShake"></div>
@@ -424,7 +398,6 @@
                 <div class="app-tagline">Rate every drink, one shake at a time</div>
             </div>
 
-            <!-- iOS -->
             <div class="section">
                 <div class="section-label">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" rx="2" width="14" height="20"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg>
@@ -440,7 +413,6 @@
                 <p class="info-text">Available now — start rating drinks today!</p>
             </div>
 
-            <!-- Android -->
             <div class="section">
                 <div class="section-label">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" rx="2" width="14" height="20"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg>
@@ -456,14 +428,14 @@
 
                 <div class="or-divider">or</div>
 
-                <form id="shakeForm" onsubmit="handleFormSubmit(event, 'shake')">
+                <form id="shakeForm">
                     <label class="form-label" for="shakeEmail">Request Android access with your Play Store Gmail</label>
                     <input type="email" id="shakeEmail" class="form-input shake-focus" placeholder="your@gmail.com" required>
                     <button type="submit" class="submit-btn shake" id="shakeSubmit">Request Beta Access</button>
                 </form>
 
-                <div class="msg-box msg-success" id="shakeSuccess">✅ Thanks! Your request has been submitted. Check your email for the beta invite link.</div>
-                <div class="msg-box msg-error" id="shakeError">⚠️ There was an error. Please email directly at <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5a35343f29362f282a773b2a2a1a2a28352e353474373f">[email&#160;protected]</a></div>
+                <div class="msg-box msg-success" id="shakeSuccess">&#x2705; Thanks! Your request has been submitted. Check your email for the beta invite link.</div>
+                <div class="msg-box msg-error" id="shakeError">&#x26A0;&#xFE0F; There was an error. Please email directly at oneslurp-app&#64;proton.me</div>
 
                 <p class="info-text">Help us work towards a full Google Play Store release!</p>
             </div>
@@ -472,34 +444,42 @@
     </div>
 
     <footer>
-        Questions? Reach us at <a href="/cdn-cgi/l/email-protection#036c6d66706f7671732e6273734373716c776c6d2d6e66"><span class="__cf_email__" data-cfemail="234c4d46504f5651530e4253536353514c574c4d0d4e46">[email&#160;protected]</span></a>
+        Questions? Reach us at oneslurp-app&#64;proton.me
     </footer>
 
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false">
+    // Build email in JS to prevent Cloudflare email obfuscation
+    var SUPPORT_EMAIL = 'oneslurp-app' + '@' + 'proton.me';
+
     function switchApp(app) {
-        const tabSlurp = document.getElementById('tabSlurp');
-        const tabShake = document.getElementById('tabShake');
-        const panelSlurp = document.getElementById('panelSlurp');
-        const panelShake = document.getElementById('panelShake');
+        var tabSlurp = document.getElementById('tabSlurp');
+        var tabShake = document.getElementById('tabShake');
+        var panelSlurp = document.getElementById('panelSlurp');
+        var panelShake = document.getElementById('panelShake');
 
         tabSlurp.className = 'tab' + (app === 'slurp' ? ' active-slurp' : '');
         tabShake.className = 'tab' + (app === 'shake' ? ' active-shake' : '');
-        panelSlurp.classList.toggle('active', app === 'slurp');
-        panelShake.classList.toggle('active', app === 'shake');
+
+        if (app === 'slurp') {
+            panelSlurp.classList.add('active');
+            panelShake.classList.remove('active');
+        } else {
+            panelShake.classList.add('active');
+            panelSlurp.classList.remove('active');
+        }
     }
 
     function handleFormSubmit(e, app) {
         e.preventDefault();
 
-        const emailInput = document.getElementById(app + 'Email');
-        const submitBtn = document.getElementById(app + 'Submit');
-        const successMsg = document.getElementById(app + 'Success');
-        const errorMsg = document.getElementById(app + 'Error');
-        const email = emailInput.value;
-
-        const appName = app === 'slurp' ? 'OneSlurp' : 'OneShake';
+        var emailInput = document.getElementById(app + 'Email');
+        var submitBtn = document.getElementById(app + 'Submit');
+        var successMsg = document.getElementById(app + 'Success');
+        var errorMsg = document.getElementById(app + 'Error');
+        var email = emailInput.value;
+        var appName = app === 'slurp' ? 'OneSlurp' : 'OneShake';
 
         successMsg.classList.remove('show');
         errorMsg.classList.remove('show');
@@ -507,8 +487,34 @@
         submitBtn.disabled = true;
         submitBtn.textContent = 'Sending...';
 
-        const subject = encodeURIComponent(appName + ' Android Beta Access Request');
-        const body = encodeURIComponent(
+        var subject = encodeURIComponent(appName + ' Android Beta Access Request');
+        var body = encodeURIComponent(
             'I would like to join the ' + appName + ' Android beta test.\n\n' +
             'Email: ' + email + '\n\n' +
-            'Please send me the invitation link.\n\nTha
+            'Please send me the invitation link.\n\nThank you!'
+        );
+
+        window.location.href = 'mailto:' + SUPPORT_EMAIL + '?subject=' + subject + '&body=' + body;
+
+        setTimeout(function() {
+            successMsg.classList.add('show');
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Request Beta Access';
+            emailInput.value = '';
+        }, 1000);
+    }
+
+    // Use addEventListener instead of inline handlers (Cloudflare-safe)
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('tabSlurp').addEventListener('click', function() { switchApp('slurp'); });
+        document.getElementById('tabShake').addEventListener('click', function() { switchApp('shake'); });
+
+        document.getElementById('slurpForm').addEventListener('submit', function(e) { handleFormSubmit(e, 'slurp'); });
+        document.getElementById('shakeForm').addEventListener('submit', function(e) { handleFormSubmit(e, 'shake'); });
+
+        // Deep-link: yoursite.com/#shake
+        if (window.location.hash === '#shake') { switchApp('shake'); }
+    });
+</script>
+</body>
+</html>
