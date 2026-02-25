@@ -3,376 +3,512 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Download OneSlurp - Rate Every Soup</title>
-    <meta name="description" content="Download OneSlurp - The soup review app. Available on iOS App Store and Android (beta testing).">
+    <title>OneSlurp & OneShake — Download</title>
+    <meta name="description" content="Download OneSlurp (soup reviews) and OneShake (drink reviews). Available on iOS and Android beta.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --slurp-primary: #FF6B35;
+            --slurp-glow: rgba(255, 107, 53, 0.25);
+            --shake-primary: #722F37;
+            --shake-secondary: #B8860B;
+            --shake-glow: rgba(184, 134, 11, 0.25);
+            --bg: #0C0A09;
+            --surface: #1A1714;
+            --surface-hover: #252118;
+            --text: #F5F0EB;
+            --text-muted: #9C958C;
+            --border: #2E2A24;
+            --radius: 16px;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg);
+            color: var(--text);
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
+            overflow-x: hidden;
         }
 
-        .container {
-            max-width: 500px;
-            width: 100%;
-            background: white;
-            border-radius: 24px;
-            padding: 40px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-        }
-
-        .logo {
-            text-align: center;
-            margin-bottom: 32px;
-        }
-
-        .logo-image {
-            width: 120px;
-            height: 120px;
-            background: #FF6B35;
-            border-radius: 28px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 64px;
-            margin-bottom: 16px;
-            box-shadow: 0 8px 24px rgba(255, 107, 53, 0.3);
-        }
-
-        h1 {
-            color: #1a1a1a;
-            font-size: 32px;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 8px;
-        }
-
-        .tagline {
-            color: #666;
-            text-align: center;
-            font-size: 16px;
-            margin-bottom: 40px;
-        }
-
-        .section {
-            margin-bottom: 32px;
-        }
-
-        .section-title {
-            color: #1a1a1a;
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .badge {
-            display: inline-block;
-            background: #4CAF50;
-            color: white;
-            font-size: 12px;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-weight: 600;
-        }
-
-        .badge.beta {
-            background: #FF9800;
-        }
-
-        .download-button {
-            display: block;
-            width: 100%;
-            padding: 16px 24px;
-            background: #000;
-            color: white;
-            text-decoration: none;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 16px;
-            text-align: center;
-            transition: all 0.3s ease;
-            margin-bottom: 12px;
-        }
-
-        .download-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-
-        .download-button.apple {
-            background: #000;
-        }
-
-        .download-button.android {
-            background: #3DDC84;
-            color: #000;
-        }
-
-        .download-button.android:hover {
-            background: #2ec771;
-        }
-
-        .divider {
-            text-align: center;
-            margin: 20px 0;
-            color: #999;
-            font-size: 14px;
-            position: relative;
-        }
-
-        .divider::before,
-        .divider::after {
+        /* Ambient background */
+        body::before {
             content: '';
-            position: absolute;
-            top: 50%;
-            width: 40%;
-            height: 1px;
-            background: #e0e0e0;
+            position: fixed;
+            top: -40%; left: -20%;
+            width: 80vw; height: 80vw;
+            background: radial-gradient(circle, var(--slurp-glow) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: -30%; right: -20%;
+            width: 70vw; height: 70vw;
+            background: radial-gradient(circle, var(--shake-glow) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
         }
 
-        .divider::before {
-            left: 0;
-        }
+        .page { position: relative; z-index: 1; }
 
-        .divider::after {
-            right: 0;
+        /* ── Header ───────────────────────────── */
+        header {
+            text-align: center;
+            padding: 60px 24px 20px;
         }
-
-        .email-form {
-            margin-top: 16px;
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(28px, 5vw, 44px);
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            line-height: 1.15;
         }
-
-        .input-group {
-            margin-bottom: 12px;
-        }
-
-        .input-group label {
-            display: block;
-            color: #666;
-            font-size: 14px;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-
-        .input-group input {
-            width: 100%;
-            padding: 14px;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
+        header h1 .slurp-word { color: var(--slurp-primary); }
+        header h1 .shake-word { color: var(--shake-secondary); }
+        header p {
+            color: var(--text-muted);
             font-size: 16px;
-            transition: border-color 0.3s ease;
+            margin-top: 12px;
+            max-width: 420px;
+            margin-inline: auto;
+            line-height: 1.5;
         }
 
-        .input-group input:focus {
-            outline: none;
-            border-color: #FF6B35;
+        /* ── App switcher tabs ────────────────── */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            padding: 24px 24px 0;
+            max-width: 500px;
+            margin: 0 auto;
         }
-
-        .submit-button {
-            width: 100%;
-            padding: 16px;
-            background: #FF6B35;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
+        .tab {
+            flex: 1;
+            padding: 14px 16px;
+            border: 2px solid var(--border);
+            border-radius: var(--radius);
+            background: transparent;
+            color: var(--text-muted);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 15px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .tab .tab-icon { font-size: 22px; }
+        .tab:hover { border-color: var(--text-muted); }
+        .tab.active-slurp {
+            border-color: var(--slurp-primary);
+            color: var(--text);
+            background: rgba(255, 107, 53, 0.08);
+            box-shadow: 0 0 24px rgba(255, 107, 53, 0.12);
+        }
+        .tab.active-shake {
+            border-color: var(--shake-secondary);
+            color: var(--text);
+            background: rgba(184, 134, 11, 0.08);
+            box-shadow: 0 0 24px rgba(184, 134, 11, 0.12);
         }
 
-        .submit-button:hover {
-            background: #e55a2b;
+        /* ── App panels ──────────────────────── */
+        .panel-container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+        .panel { display: none; animation: fadeIn 0.35s ease; }
+        .panel.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ── App hero ─────────────────────────── */
+        .app-hero {
+            text-align: center;
+            padding: 32px 0 24px;
+        }
+        .app-icon {
+            width: 100px; height: 100px;
+            border-radius: 24px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 52px;
+            margin-bottom: 16px;
+        }
+        .app-icon.slurp {
+            background: linear-gradient(145deg, #FF6B35, #E55520);
+            box-shadow: 0 12px 32px rgba(255, 107, 53, 0.35);
+        }
+        .app-icon.shake {
+            background: linear-gradient(145deg, #722F37, #5A2028);
+            box-shadow: 0 12px 32px rgba(114, 47, 55, 0.4);
+            overflow: hidden;
+        }
+        .app-icon.shake img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            border-radius: 24px;
+        }
+        .app-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+        }
+        .app-tagline {
+            color: var(--text-muted);
+            font-size: 15px;
+            margin-top: 4px;
+        }
+
+        /* ── Sections ─────────────────────────── */
+        .section {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+            margin-bottom: 16px;
+        }
+        .section-label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .badge {
+            display: inline-block;
+            font-size: 10px;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        .badge-live { background: #22C55E; color: #052E16; }
+        .badge-beta { background: #F59E0B; color: #451A03; }
+
+        /* ── Buttons ──────────────────────────── */
+        .dl-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 15px 20px;
+            border-radius: 12px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            cursor: pointer;
+            border: none;
+        }
+        .dl-btn svg { flex-shrink: 0; }
+
+        .dl-btn-apple {
+            background: #fff;
+            color: #000;
+        }
+        .dl-btn-apple:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+            box-shadow: 0 8px 20px rgba(255,255,255,0.15);
         }
 
-        .submit-button:disabled {
-            background: #ccc;
-            cursor: not-allowed;
-            transform: none;
+        .dl-btn-android {
+            background: #3DDC84;
+            color: #003D1A;
         }
+        .dl-btn-android:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(61, 220, 132, 0.2);
+        }
+
+        .or-divider {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 13px;
+            margin: 16px 0;
+            position: relative;
+        }
+        .or-divider::before, .or-divider::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 38%;
+            height: 1px;
+            background: var(--border);
+        }
+        .or-divider::before { left: 0; }
+        .or-divider::after { right: 0; }
+
+        /* ── Form ─────────────────────────────── */
+        .form-label {
+            display: block;
+            color: var(--text-muted);
+            font-size: 13px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        .form-input {
+            width: 100%;
+            padding: 13px 16px;
+            background: var(--bg);
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            color: var(--text);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 15px;
+            transition: border-color 0.25s ease;
+            margin-bottom: 12px;
+        }
+        .form-input::placeholder { color: #5C564E; }
+        .form-input:focus { outline: none; }
+        .form-input.slurp-focus:focus { border-color: var(--slurp-primary); }
+        .form-input.shake-focus:focus { border-color: var(--shake-secondary); }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+        .submit-btn:hover { transform: translateY(-1px); }
+        .submit-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+        .submit-btn.slurp { background: var(--slurp-primary); }
+        .submit-btn.slurp:hover:not(:disabled) { box-shadow: 0 4px 16px rgba(255,107,53,0.3); }
+        .submit-btn.shake { background: var(--shake-secondary); }
+        .submit-btn.shake:hover:not(:disabled) { box-shadow: 0 4px 16px rgba(184,134,11,0.3); }
+
+        .msg-box {
+            padding: 14px;
+            border-radius: 10px;
+            margin-top: 12px;
+            font-size: 14px;
+            display: none;
+        }
+        .msg-box.show { display: block; }
+        .msg-success { background: rgba(34,197,94,0.1); color: #86EFAC; border: 1px solid rgba(34,197,94,0.2); }
+        .msg-error { background: rgba(239,68,68,0.1); color: #FCA5A5; border: 1px solid rgba(239,68,68,0.2); }
 
         .info-text {
-            color: #666;
-            font-size: 14px;
-            line-height: 1.6;
-            margin-top: 12px;
+            color: var(--text-muted);
+            font-size: 13px;
+            line-height: 1.5;
+            margin-top: 14px;
         }
 
-        .success-message {
-            background: #e8f5e9;
-            color: #2e7d32;
-            padding: 16px;
-            border-radius: 8px;
-            margin-top: 12px;
-            display: none;
+        /* ── Footer ───────────────────────────── */
+        footer {
+            text-align: center;
+            padding: 32px 24px 48px;
+            color: var(--text-muted);
+            font-size: 13px;
         }
-
-        .success-message.show {
-            display: block;
-        }
-
-        .error-message {
-            background: #ffebee;
-            color: #c62828;
-            padding: 16px;
-            border-radius: 8px;
-            margin-top: 12px;
-            display: none;
-        }
-
-        .error-message.show {
-            display: block;
-        }
-
-        .icon {
-            font-size: 20px;
+        footer a {
+            color: var(--text-muted);
+            text-decoration: underline;
+            text-underline-offset: 2px;
         }
 
         @media (max-width: 480px) {
-            .container {
-                padding: 24px;
-            }
-
-            h1 {
-                font-size: 28px;
-            }
-
-            .logo-image {
-                width: 100px;
-                height: 100px;
-                font-size: 56px;
-            }
+            header { padding: 48px 20px 16px; }
+            .panel-container { padding: 16px; }
+            .section { padding: 20px; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="logo">
-            <div class="logo-image">🍜</div>
-            <h1>OneSlurp</h1>
-            <p class="tagline">Community, one slurp at a time</p>
-        </div>
+<div class="page">
 
-        <!-- iOS Download Section -->
-        <div class="section">
-            <div class="section-title">
-                <span class="icon">📱</span>
-                Download for iPhone
-                <span class="badge">Live</span>
-            </div>
-            <a href="https://apps.apple.com/us/app/oneslurp/id6756277758" 
-               class="download-button apple"
-               target="_blank"
-               rel="noopener noreferrer">
-                📲 Download on App Store
-            </a>
-            <p class="info-text">
-                Available now for iOS devices. Start rating soups today!
-            </p>
-        </div>
+    <header>
+        <h1><span class="slurp-word">OneSlurp</span> & <span class="shake-word">OneShake</span></h1>
+        <p>Rate every soup. Rate every drink. Two apps, one community at a time.</p>
+    </header>
 
-        <!-- Android Testing Section -->
-        <div class="section">
-            <div class="section-title">
-                <span class="icon">🤖</span>
-                Download for Android
-                <span class="badge beta">Beta Testing</span>
-            </div>
-            
-            <a href="https://play.google.com/apps/internaltest/4700602152658105554" 
-               class="download-button android"
-               target="_blank"
-               rel="noopener noreferrer">
-                🚀 Join Internal Test
-            </a>
-
-            <div class="divider">OR</div>
-
-            <form class="email-form" id="androidSignupForm">
-                <div class="input-group">
-                    <label for="email">Request Android Access with your Play Store Gmail Address</label>
-                    <input 
-                        type="email" 
-                        id="email" 
-                        name="email" 
-                        placeholder="your@email.com"
-                        required
-                    >
-                </div>
-                <button type="submit" class="submit-button" id="submitButton">
-                    Request Beta Access
-                </button>
-            </form>
-
-            <div class="success-message" id="successMessage">
-                ✅ Thanks! Your request has been submitted. Check your email for the beta invite link.
-            </div>
-
-            <div class="error-message" id="errorMessage">
-                ⚠️ There was an error. Please email directly at oneslurp-app@proton.me
-            </div>
-
-            <p class="info-text">
-                Help us work towards a full Google Play Store release of the One-Slurp App!
-            </p>
-        </div>
+    <!-- ── App Tabs ──────────────────────── -->
+    <div class="tabs">
+        <button class="tab active-slurp" id="tabSlurp" onclick="switchApp('slurp')">
+            <span class="tab-icon">🍜</span> OneSlurp
+        </button>
+        <button class="tab" id="tabShake" onclick="switchApp('shake')">
+            <img src="oneshake-icon.png" alt="" style="width:24px;height:24px;border-radius:6px;"> OneShake
+        </button>
     </div>
 
-    <script>
-        document.getElementById('androidSignupForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const email = document.getElementById('email').value;
-            const submitButton = document.getElementById('submitButton');
-            const successMessage = document.getElementById('successMessage');
-            const errorMessage = document.getElementById('errorMessage');
-            
-            // Hide previous messages
-            successMessage.classList.remove('show');
-            errorMessage.classList.remove('show');
-            
-            // Disable button
-            submitButton.disabled = true;
-            submitButton.textContent = 'Sending...';
-            
-            // Create mailto link (opens user's email client)
-            const subject = encodeURIComponent('OneSlurp Android Beta Access Request');
-            const body = encodeURIComponent(`I would like to join the OneSlurp Android beta test.
+    <div class="panel-container">
 
-Email: ${email}
+        <!-- ══════════════════════════════════ -->
+        <!-- ── ONESLURP PANEL ────────────── -->
+        <!-- ══════════════════════════════════ -->
+        <div class="panel active" id="panelSlurp">
+            <div class="app-hero">
+                <div class="app-icon slurp">🍜</div>
+                <div class="app-name">OneSlurp</div>
+                <div class="app-tagline">Community, one slurp at a time</div>
+            </div>
 
-Please send me the invitation link.
+            <!-- iOS -->
+            <div class="section">
+                <div class="section-label">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" rx="2" width="14" height="20"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg>
+                    iPhone
+                    <span class="badge badge-live">Live</span>
+                </div>
+                <a href="https://apps.apple.com/us/app/oneslurp/id6756277758"
+                   class="dl-btn dl-btn-apple" target="_blank" rel="noopener noreferrer">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#000"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                    Download on App Store
+                </a>
+                <p class="info-text">Available now — start rating soups today!</p>
+            </div>
 
-Thank you!`);
-            
-            const mailtoLink = `mailto:oneslurp-app@proton.me?subject=${subject}&body=${body}`;
-            
-            // Open email client
-            window.location.href = mailtoLink;
-            
-            // Show success message
-            setTimeout(() => {
-                successMessage.classList.add('show');
-                submitButton.disabled = false;
-                submitButton.textContent = 'Request Beta Access';
-                document.getElementById('email').value = '';
-            }, 1000);
-        });
-    </script>
-</body>
-</html>
+            <!-- Android -->
+            <div class="section">
+                <div class="section-label">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" rx="2" width="14" height="20"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg>
+                    Android
+                    <span class="badge badge-beta">Beta</span>
+                </div>
+                <a href="https://play.google.com/apps/internaltest/4700602152658105554"
+                   class="dl-btn dl-btn-android" target="_blank" rel="noopener noreferrer">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#003D1A"><path d="M17.523 2.235a.5.5 0 0 0-.872-.04L14.87 5.328a10.1 10.1 0 0 0-5.74 0L7.349 2.195a.5.5 0 0 0-.872.04.5.5 0 0 0 .044.497L8.2 5.5A9.7 9.7 0 0 0 2 14h20a9.7 9.7 0 0 0-6.2-8.5l1.679-2.768a.5.5 0 0 0 .044-.497zM8.5 11a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm7 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2zM2 16v4a2 2 0 0 0 4 0v-4zm16 0v4a2 2 0 0 0 4 0v-4zM4 16h16v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/></svg>
+                    Join Internal Test
+                </a>
+
+                <div class="or-divider">or</div>
+
+                <form id="slurpForm" onsubmit="handleFormSubmit(event, 'slurp')">
+                    <label class="form-label" for="slurpEmail">Request Android access with your Play Store Gmail</label>
+                    <input type="email" id="slurpEmail" class="form-input slurp-focus" placeholder="your@gmail.com" required>
+                    <button type="submit" class="submit-btn slurp" id="slurpSubmit">Request Beta Access</button>
+                </form>
+
+                <div class="msg-box msg-success" id="slurpSuccess">✅ Thanks! Your request has been submitted. Check your email for the beta invite link.</div>
+                <div class="msg-box msg-error" id="slurpError">⚠️ There was an error. Please email directly at <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="27484942544b5255570a46575767575548534849094a42">[email&#160;protected]</a></div>
+
+                <p class="info-text">Help us work towards a full Google Play Store release!</p>
+            </div>
+        </div>
+
+        <!-- ══════════════════════════════════ -->
+        <!-- ── ONESHAKE PANEL ────────────── -->
+        <!-- ══════════════════════════════════ -->
+        <div class="panel" id="panelShake">
+            <div class="app-hero">
+                <div class="app-icon shake"><img src="oneshake-icon.png" alt="OneShake"></div>
+                <div class="app-name">OneShake</div>
+                <div class="app-tagline">Rate every drink, one shake at a time</div>
+            </div>
+
+            <!-- iOS -->
+            <div class="section">
+                <div class="section-label">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" rx="2" width="14" height="20"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg>
+                    iPhone
+                    <span class="badge badge-live">Live</span>
+                </div>
+                <!-- TODO: Replace with actual OneShake App Store URL -->
+                <a href="#ONESHAKE_IOS_APP_STORE_URL"
+                   class="dl-btn dl-btn-apple" target="_blank" rel="noopener noreferrer">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#000"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                    Download on App Store
+                </a>
+                <p class="info-text">Available now — start rating drinks today!</p>
+            </div>
+
+            <!-- Android -->
+            <div class="section">
+                <div class="section-label">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" rx="2" width="14" height="20"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg>
+                    Android
+                    <span class="badge badge-beta">Beta</span>
+                </div>
+                <!-- TODO: Replace with actual OneShake internal test URL -->
+                <a href="#ONESHAKE_ANDROID_INTERNAL_TEST_URL"
+                   class="dl-btn dl-btn-android" target="_blank" rel="noopener noreferrer">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#003D1A"><path d="M17.523 2.235a.5.5 0 0 0-.872-.04L14.87 5.328a10.1 10.1 0 0 0-5.74 0L7.349 2.195a.5.5 0 0 0-.872.04.5.5 0 0 0 .044.497L8.2 5.5A9.7 9.7 0 0 0 2 14h20a9.7 9.7 0 0 0-6.2-8.5l1.679-2.768a.5.5 0 0 0 .044-.497zM8.5 11a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm7 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2zM2 16v4a2 2 0 0 0 4 0v-4zm16 0v4a2 2 0 0 0 4 0v-4zM4 16h16v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/></svg>
+                    Join Internal Test
+                </a>
+
+                <div class="or-divider">or</div>
+
+                <form id="shakeForm" onsubmit="handleFormSubmit(event, 'shake')">
+                    <label class="form-label" for="shakeEmail">Request Android access with your Play Store Gmail</label>
+                    <input type="email" id="shakeEmail" class="form-input shake-focus" placeholder="your@gmail.com" required>
+                    <button type="submit" class="submit-btn shake" id="shakeSubmit">Request Beta Access</button>
+                </form>
+
+                <div class="msg-box msg-success" id="shakeSuccess">✅ Thanks! Your request has been submitted. Check your email for the beta invite link.</div>
+                <div class="msg-box msg-error" id="shakeError">⚠️ There was an error. Please email directly at <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5a35343f29362f282a773b2a2a1a2a28352e353474373f">[email&#160;protected]</a></div>
+
+                <p class="info-text">Help us work towards a full Google Play Store release!</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        Questions? Reach us at <a href="/cdn-cgi/l/email-protection#036c6d66706f7671732e6273734373716c776c6d2d6e66"><span class="__cf_email__" data-cfemail="234c4d46504f5651530e4253536353514c574c4d0d4e46">[email&#160;protected]</span></a>
+    </footer>
+
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    function switchApp(app) {
+        const tabSlurp = document.getElementById('tabSlurp');
+        const tabShake = document.getElementById('tabShake');
+        const panelSlurp = document.getElementById('panelSlurp');
+        const panelShake = document.getElementById('panelShake');
+
+        tabSlurp.className = 'tab' + (app === 'slurp' ? ' active-slurp' : '');
+        tabShake.className = 'tab' + (app === 'shake' ? ' active-shake' : '');
+        panelSlurp.classList.toggle('active', app === 'slurp');
+        panelShake.classList.toggle('active', app === 'shake');
+    }
+
+    function handleFormSubmit(e, app) {
+        e.preventDefault();
+
+        const emailInput = document.getElementById(app + 'Email');
+        const submitBtn = document.getElementById(app + 'Submit');
+        const successMsg = document.getElementById(app + 'Success');
+        const errorMsg = document.getElementById(app + 'Error');
+        const email = emailInput.value;
+
+        const appName = app === 'slurp' ? 'OneSlurp' : 'OneShake';
+
+        successMsg.classList.remove('show');
+        errorMsg.classList.remove('show');
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+
+        const subject = encodeURIComponent(appName + ' Android Beta Access Request');
+        const body = encodeURIComponent(
+            'I would like to join the ' + appName + ' Android beta test.\n\n' +
+            'Email: ' + email + '\n\n' +
+            'Please send me the invitation link.\n\nTha
