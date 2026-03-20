@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One-Stay — Rate Every Stay, One Key at a Time</title>
+    <meta name="description" content="Discover, rate, and share your hotel, resort, Airbnb, and cruise experiences. Join the One-Stay community of travelers.">
+    <meta property="og:title" content="One-Stay — The Ultimate Stay Review App">
+    <meta property="og:description" content="Rate every stay, one key at a time. 🗝️">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://one-slurp.com/one-stay.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1B2A4A;
+            --primary-light: #2E4070;
+            --gold: #C9A84C;
+            --gold-light: #E8C96A;
+            --cream: #F7F5F0;
+            --surface: #EFECE6;
+            --text-primary: #1A1A2E;
+            --text-secondary: #6B6B80;
+            --border: #E2DDD8;
+            --white: #FFFFFF;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'DM Sans', sans-serif; color: var(--text-primary); line-height: 1.6; background: var(--cream); }
+        h1, h2, h3 { font-family: 'DM Serif Display', serif; }
+
+        /* ─── Nav ─── */
+        nav { background: rgba(27,42,74,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(201,168,76,0.2); position: sticky; top: 0; z-index: 1000; }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo-text { font-family: 'DM Serif Display', serif; font-size: 1.6rem; color: var(--gold); text-decoration: none; display: flex; align-items: center; gap: 0.4rem; }
+        .nav-links { display: flex; gap: 1.75rem; list-style: none; }
+        .nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--gold); }
+        .nav-links .oneslurp-link { color: #FF6B35; font-weight: 600; }
+        .nav-links .oneshake-link { color: #C4747D; font-weight: 600; }
+
+        /* ─── Hero ─── */
+        .hero {
+            background: linear-gradient(145deg, #0D1117 0%, var(--primary) 50%, #162240 100%);
+            color: var(--white);
+            padding: 7rem 2rem 6rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 30% 50%, rgba(201,168,76,0.1) 0%, transparent 60%),
+                        radial-gradient(ellipse at 70% 30%, rgba(201,168,76,0.06) 0%, transparent 50%);
+        }
+        .hero::after {
+            content: '🗝️';
+            position: absolute;
+            font-size: 22rem;
+            opacity: 0.05;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: gentleFloat 8s ease-in-out infinite;
+            pointer-events: none;
+        }
+        @keyframes gentleFloat {
+            0%, 100% { transform: translate(-50%, -50%) rotate(-5deg); }
+            50% { transform: translate(-50%, -53%) rotate(5deg); }
+        }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+        .hero-content { max-width: 780px; margin: 0 auto; position: relative; z-index: 1; }
+        .hero-badge { display: inline-block; background: rgba(201,168,76,0.15); border: 1px solid rgba(201,168,76,0.35); color: var(--gold-light); padding: 0.4rem 1.2rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.04em; margin-bottom: 1.5rem; animation: fadeInDown 0.8s ease-out; }
+        .hero h1 { font-size: 3.8rem; font-weight: 400; margin-bottom: 1.25rem; line-height: 1.15; animation: fadeInUp 0.8s ease-out 0.1s both; color: var(--white); }
+        .hero h1 em { font-style: italic; color: var(--gold-light); }
+        .hero p { font-size: 1.2rem; margin-bottom: 2.5rem; opacity: 0.85; max-width: 560px; margin-left: auto; margin-right: auto; animation: fadeInUp 0.8s ease-out 0.2s both; }
+        .download-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; animation: fadeInUp 0.8s ease-out 0.3s both; }
+        .btn { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.9rem 1.8rem; border-radius: 12px; font-size: 1rem; font-weight: 600; text-decoration: none; transition: all 0.3s; cursor: pointer; border: none; font-family: inherit; }
+        .btn-app-store { background: var(--gold); color: var(--primary); }
+        .btn-app-store:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,168,76,0.35); }
+        .btn-google-play { background: rgba(255,255,255,0.12); color: var(--white); border: 1px solid rgba(255,255,255,0.25); }
+        .btn-google-play:hover { background: rgba(255,255,255,0.2); transform: translateY(-2px); }
+
+        /* ─── Features ─── */
+        .features { padding: 5rem 2rem; background: var(--white); }
+        .features-inner { max-width: 1100px; margin: 0 auto; }
+        .section-label { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; }
+        .section-title { font-size: 2.4rem; font-weight: 400; margin-bottom: 1rem; color: var(--text-primary); }
+        .section-subtitle { font-size: 1.05rem; color: var(--text-secondary); max-width: 520px; margin-bottom: 3.5rem; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+        .feature-card { background: var(--cream); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; transition: all 0.3s; }
+        .feature-card:hover { border-color: var(--gold); transform: translateY(-4px); box-shadow: 0 12px 32px rgba(27,42,74,0.1); }
+        .feature-icon { font-size: 2.2rem; margin-bottom: 1rem; }
+        .feature-card h3 { font-size: 1.2rem; font-weight: 400; margin-bottom: 0.5rem; color: var(--text-primary); }
+        .feature-card p { font-size: 0.92rem; color: var(--text-secondary); line-height: 1.65; }
+
+        /* ─── Stay Types ─── */
+        .stay-types { padding: 5rem 2rem; background: var(--cream); }
+        .stay-types-inner { max-width: 1100px; margin: 0 auto; }
+        .stay-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; margin-top: 3rem; }
+        .stay-card { background: var(--primary); color: var(--white); border-radius: 16px; padding: 2rem 1.5rem; text-align: center; transition: all 0.3s; border: 1px solid rgba(201,168,76,0.2); }
+        .stay-card:hover { transform: translateY(-4px); border-color: var(--gold); }
+        .stay-card .icon { font-size: 2.8rem; margin-bottom: 1rem; }
+        .stay-card h3 { font-size: 1.1rem; font-weight: 400; margin-bottom: 0.4rem; color: var(--gold-light); }
+        .stay-card p { font-size: 0.88rem; opacity: 0.7; }
+
+        /* ─── Rating System ─── */
+        .rating-section { padding: 5rem 2rem; background: var(--white); }
+        .rating-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+        .dimensions { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.25rem; margin-top: 3rem; }
+        .dimension-card { background: var(--cream); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; text-align: center; }
+        .dimension-card .icon { font-size: 2rem; margin-bottom: 0.75rem; }
+        .dimension-card h4 { font-size: 1rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.25rem; }
+        .dimension-card p { font-size: 0.85rem; color: var(--text-secondary); }
+        .overall-badge { display: inline-block; background: linear-gradient(135deg, var(--primary), var(--primary-light)); color: var(--gold-light); padding: 1.25rem 3rem; border-radius: 16px; margin-top: 2.5rem; border: 1px solid rgba(201,168,76,0.3); }
+        .overall-badge .score { font-size: 3.5rem; font-family: 'DM Serif Display', serif; color: var(--gold); display: block; line-height: 1; }
+        .overall-badge .label { font-size: 0.9rem; opacity: 0.7; margin-top: 0.25rem; }
+
+        /* ─── One-Source section ─── */
+        .one-source { padding: 5rem 2rem; background: var(--primary); color: var(--white); text-align: center; }
+        .one-source-inner { max-width: 900px; margin: 0 auto; }
+        .one-source h2 { font-size: 2.4rem; font-weight: 400; color: var(--gold-light); margin-bottom: 1rem; }
+        .one-source p { font-size: 1.05rem; opacity: 0.8; margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .app-links { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
+        .app-link { display: inline-flex; align-items: center; gap: 0.6rem; padding: 1rem 2rem; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 1rem; transition: all 0.3s; }
+        .app-link-slurp { background: rgba(255,107,53,0.15); color: #FF6B35; border: 1px solid rgba(255,107,53,0.3); }
+        .app-link-slurp:hover { background: rgba(255,107,53,0.25); transform: translateY(-2px); }
+        .app-link-shake { background: rgba(196,116,125,0.15); color: #C4747D; border: 1px solid rgba(196,116,125,0.3); }
+        .app-link-shake:hover { background: rgba(196,116,125,0.25); transform: translateY(-2px); }
+
+        /* ─── Footer ─── */
+        footer { background: #0D1117; color: var(--white); padding: 3rem 2rem 2rem; }
+        .footer-inner { max-width: 1100px; margin: 0 auto; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 2.5rem; }
+        .footer-brand p { font-size: 0.92rem; color: rgba(255,255,255,0.5); margin-top: 0.75rem; line-height: 1.7; }
+        .footer-section h3 { font-family: 'DM Serif Display', serif; font-size: 1rem; font-weight: 400; color: var(--gold); margin-bottom: 1rem; }
+        .footer-section ul { list-style: none; }
+        .footer-section li { margin-bottom: 0.6rem; }
+        .footer-section a { color: rgba(255,255,255,0.55); text-decoration: none; font-size: 0.9rem; transition: color 0.3s; }
+        .footer-section a:hover { color: var(--gold); }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .footer-bottom p { color: rgba(255,255,255,0.35); font-size: 0.82rem; }
+        @media (max-width: 768px) { .nav-links { display: none; } .hero h1 { font-size: 2.4rem; } .hero { padding: 5rem 1.5rem 4rem; } .footer-grid { grid-template-columns: 1fr; gap: 2rem; } }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="/one-stay.html" class="logo-text">🗝️ One-Stay</a>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="/onestay-privacy.html">Privacy</a></li>
+                <li><a href="/onestay-terms.html">Terms</a></li>
+                <li><a href="/onestay-delete-account.html">Delete Account</a></li>
+                <li><a href="/" class="oneslurp-link">🍜 OneSlurp</a></li>
+                <li><a href="/one-shake.html" class="oneshake-link">🥃 OneShake</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">🗝️ Now Available</div>
+            <h1>Rate every stay,<br><em>one key at a time</em></h1>
+            <p>Discover, rate, and share your hotel, resort, Airbnb, and travel experiences with a community of discerning travelers.</p>
+            <div class="download-buttons">
+                <a href="#" class="btn btn-app-store">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                    App Store
+                </a>
+                <a href="#" class="btn btn-google-play">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3 20.5v-17c0-.83.94-1.3 1.6-.8l14 8.5c.6.37.6 1.23 0 1.6l-14 8.5c-.66.5-1.6.03-1.6-.8z"/></svg>
+                    Google Play
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="features">
+        <div class="features-inner">
+            <p class="section-label">Why One-Stay</p>
+            <h2 class="section-title">Your travel experiences, beautifully captured</h2>
+            <p class="section-subtitle">Whether it's a 5-star resort or a cozy Airbnb, One-Stay helps you remember — and share — what made each stay special.</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🗝️</div>
+                    <h3>Multi-Dimension Ratings</h3>
+                    <p>Rate Room, Service, Value, and Location separately for an accurate, nuanced score — no single-star oversimplification.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📍</div>
+                    <h3>Smart Property Search</h3>
+                    <p>Find any hotel, resort, or property instantly via Google Places, or enter manually for off-grid stays.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📸</div>
+                    <h3>Photo Reviews</h3>
+                    <p>Attach up to 3 photos to each stay review so your memories — and your recommendations — come to life.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3>Traveler Community</h3>
+                    <p>Follow friends, see where they're staying, and build a trusted inner circle of fellow travelers.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏆</div>
+                    <h3>Leaderboards</h3>
+                    <p>Rise through the ranks of the most-traveled users and earn badges for your exploration milestones.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📝</div>
+                    <h3>Review Drafts</h3>
+                    <p>Start a review mid-trip and finish it later — your draft is always waiting for you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stay Types -->
+    <section class="stay-types">
+        <div class="stay-types-inner">
+            <p class="section-label">Every type of stay</p>
+            <h2 class="section-title">From five-star resorts to lakeside cabins</h2>
+            <p class="section-subtitle">One-Stay covers the full spectrum of travel accommodation.</p>
+            <div class="stay-grid">
+                <div class="stay-card">
+                    <div class="icon">🏨</div>
+                    <h3>Hotels & Resorts</h3>
+                    <p>Business hotels, boutique stays, all-inclusive resorts</p>
+                </div>
+                <div class="stay-card">
+                    <div class="icon">🏠</div>
+                    <h3>Airbnb & VRBO</h3>
+                    <p>Apartments, villas, unique homes and rentals</p>
+                </div>
+                <div class="stay-card">
+                    <div class="icon">⛺</div>
+                    <h3>Camping & Glamping</h3>
+                    <p>Campsites, yurts, treehouses, nature lodges</p>
+                </div>
+                <div class="stay-card">
+                    <div class="icon">🚢</div>
+                    <h3>Cruises</h3>
+                    <p>Ocean cruises, river cruises, expedition ships</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rating System -->
+    <section class="rating-section">
+        <div class="rating-inner">
+            <p class="section-label">The rating system</p>
+            <h2 class="section-title">Four dimensions. One honest score.</h2>
+            <p style="color:var(--text-secondary);max-width:500px;margin:0 auto 0;">Rate each dimension independently on a 5–10 scale. One-Stay averages them into your overall score.</p>
+            <div class="dimensions">
+                <div class="dimension-card">
+                    <div class="icon">🛏️</div>
+                    <h4>Room</h4>
+                    <p>Cleanliness, comfort, and amenities</p>
+                </div>
+                <div class="dimension-card">
+                    <div class="icon">🛎️</div>
+                    <h4>Service</h4>
+                    <p>Staff, responsiveness, hospitality</p>
+                </div>
+                <div class="dimension-card">
+                    <div class="icon">💰</div>
+                    <h4>Value</h4>
+                    <p>Price relative to quality received</p>
+                </div>
+                <div class="dimension-card">
+                    <div class="icon">📍</div>
+                    <h4>Location</h4>
+                    <p>Convenience, surroundings, access</p>
+                </div>
+            </div>
+            <div class="overall-badge">
+                <span class="score">8.7</span>
+                <span class="label">Overall Score — averaged automatically</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- One-Source -->
+    <section class="one-source">
+        <div class="one-source-inner">
+            <h2>Part of the One-Source family</h2>
+            <p>One account. Three apps. Your profile, friends, and reviews travel with you across the entire One-Source suite.</p>
+            <div class="app-links">
+                <a href="/" class="app-link app-link-slurp">🍜 OneSlurp — Soup Reviews</a>
+                <a href="/one-shake.html" class="app-link app-link-shake">🥃 OneShake — Drink Reviews</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/one-stay.html" style="font-family:'DM Serif Display',serif;font-size:1.5rem;color:var(--gold);text-decoration:none;">🗝️ One-Stay</a>
+                    <p>Rate every stay, one key at a time. Part of the One-Source family of apps by Catrick Enterprises.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>App</h3>
+                    <ul>
+                        <li><a href="#">App Store</a></li>
+                        <li><a href="#">Google Play</a></li>
+                        <li><a href="#features">Features</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="/onestay-privacy.html">Privacy Policy</a></li>
+                        <li><a href="/onestay-terms.html">Terms of Service</a></li>
+                        <li><a href="/onestay-eula.html">EULA</a></li>
+                        <li><a href="/onestay-delete-account.html">Delete Account</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>One-Source</h3>
+                    <ul>
+                        <li><a href="/">OneSlurp</a></li>
+                        <li><a href="/one-shake.html">OneShake</a></li>
+                        <li><a href="mailto:support@one-slurp.com">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Catrick Enterprises. All rights reserved.</p>
+                <p>Made with ☕ for travelers everywhere</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
