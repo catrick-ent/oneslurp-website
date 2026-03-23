@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - OneSlurp & OneShake</title>
-    <meta name="description" content="Get in touch with the OneSlurp and OneShake team. Bug reports, feedback, account help, and more.">
+    <title>Contact Us - OneSlurp, OneShake & One-Stay</title>
+    <meta name="description" content="Get in touch with the OneSlurp, OneShake, and One-Stay team. Bug reports, feedback, account help, and more.">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,6 +26,10 @@
             --white: #FFFFFF;
             --orange: #FF6B35;
             --orange-light: #FFF0E8;
+            --navy: #1B2A4A;
+            --navy-light: #E8EDF5;
+            --gold: #C9A84C;
+            --gold-light: #FDF6E3;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -113,7 +117,7 @@
         /* ─── App Selector ─── */
         .app-cards {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr;
             gap: 1.5rem;
             margin-bottom: 3rem;
         }
@@ -134,6 +138,7 @@
 
         .app-card.slurp:hover { border-color: var(--orange); }
         .app-card.shake:hover { border-color: var(--primary); }
+        .app-card.stay:hover { border-color: var(--navy); }
 
         .app-card .emoji {
             font-size: 3rem;
@@ -148,6 +153,7 @@
 
         .app-card.slurp h2 { color: var(--orange); }
         .app-card.shake h2 { color: var(--primary); }
+        .app-card.stay h2 { color: var(--navy); }
 
         .app-card .tagline {
             font-size: 0.9rem;
@@ -188,6 +194,15 @@
             color: var(--white);
         }
 
+        .app-card.stay .links a {
+            color: var(--navy);
+            background: var(--navy-light);
+        }
+        .app-card.stay .links a:hover {
+            background: var(--navy);
+            color: var(--white);
+        }
+
         /* ─── Contact Methods ─── */
         .contact-section {
             margin-bottom: 2.5rem;
@@ -203,7 +218,7 @@
 
         .contact-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr;
             gap: 1.25rem;
         }
 
@@ -324,6 +339,7 @@
             .hero h1 { font-size: 2rem; }
             .hero p { font-size: 1rem; }
             .app-cards { grid-template-columns: 1fr; }
+            .app-cards .app-card.stay { order: -1; }
             .contact-grid { grid-template-columns: 1fr; }
             .nav-links { gap: 1rem; }
             .nav-links a { font-size: 0.85rem; }
@@ -335,10 +351,11 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <a href="/" class="nav-brand">OneSlurp & OneShake</a>
+            <a href="/" class="nav-brand">One Apps</a>
             <ul class="nav-links">
                 <li><a href="/">OneSlurp</a></li>
                 <li><a href="/one-shake.html">OneShake</a></li>
+                <li><a href="/one-stay.html">One-Stay</a></li>
                 <li><a href="/contact.html" style="color: var(--primary); font-weight: 700;">Contact</a></li>
             </ul>
         </div>
@@ -375,6 +392,16 @@
                     <a href="/sip-terms.html">Terms of Service</a>
                 </div>
             </div>
+            <div class="app-card stay">
+                <span class="emoji">🏨</span>
+                <h2>One-Stay</h2>
+                <p class="tagline">Stay Reviews</p>
+                <div class="links">
+                    <a href="/one-stay.html">Visit Homepage</a>
+                    <a href="/onestay-eula.html">EULA</a>
+                    <a href="/onestay-terms.html">Terms of Service</a>
+                </div>
+            </div>
         </div>
 
         <!-- Contact Methods -->
@@ -385,25 +412,25 @@
                     <span class="icon">🐛</span>
                     <h3>Report a Bug</h3>
                     <p>Found something broken? Let us know and we'll fix it.</p>
-                    <a class="action" href="mailto:oneslurp-app@proton.me?subject=Bug%20Report">oneslurp-app@proton.me</a>
+                    <a class="action" href="mailto:support@one-slurp.com?subject=Bug%20Report">support@one-slurp.com</a>
                 </div>
                 <div class="contact-item">
                     <span class="icon">💡</span>
                     <h3>Feature Request</h3>
                     <p>Have an idea to make the app better? We're all ears.</p>
-                    <a class="action" href="mailto:oneslurp-app@proton.me?subject=Feature%20Request">Send a Suggestion</a>
+                    <a class="action" href="mailto:support@one-slurp.com?subject=Feature%20Request">Send a Suggestion</a>
                 </div>
                 <div class="contact-item">
                     <span class="icon">👤</span>
                     <h3>Account Help</h3>
                     <p>Need to delete your account or having login issues?</p>
-                    <a class="action" href="mailto:oneslurp-app@proton.me?subject=Account%20Help">Get Account Help</a>
+                    <a class="action" href="mailto:support@one-slurp.com?subject=Account%20Help">Get Account Help</a>
                 </div>
                 <div class="contact-item">
                     <span class="icon">💬</span>
                     <h3>General Inquiry</h3>
                     <p>Anything else — partnerships, press, or just saying hi.</p>
-                    <a class="action" href="mailto:oneslurp-app@proton.me?subject=General%20Inquiry">Say Hello</a>
+                    <a class="action" href="mailto:support@one-slurp.com?subject=General%20Inquiry">Say Hello</a>
                 </div>
             </div>
         </div>
@@ -414,15 +441,15 @@
             <div class="faq-list">
                 <div class="faq-item">
                     <h3>How do I delete my account?</h3>
-                    <p>Go to Profile → Settings → Delete Account in the app, or visit the <a href="/delete-account.html">OneSlurp</a> or <a href="/sipdelete-account.html">OneShake</a> account deletion page.</p>
+                    <p>Go to Profile → Settings → Delete Account in the app, or visit the <a href="/delete-account.html">OneSlurp</a>, <a href="/sipdelete-account.html">OneShake</a>, or <a href="/onestay-delete-account.html">One-Stay</a> account deletion page.</p>
                 </div>
                 <div class="faq-item">
                     <h3>How do I reset my password?</h3>
                     <p>Tap "Forgot Password" on the login screen. You'll receive an email with a reset link.</p>
                 </div>
                 <div class="faq-item">
-                    <h3>Are OneSlurp and OneShake the same app?</h3>
-                    <p>They're sister apps from the same team! OneSlurp is for soup reviews, OneShake is for cocktails, wines, beers, and spirits.</p>
+                    <h3>Are OneSlurp, OneShake, and One-Stay the same app?</h3>
+                    <p>They're sister apps from the same team — all sharing the same social network! OneSlurp is for soup reviews, OneShake is for cocktails and drinks, and One-Stay is for hotel, Airbnb, cruise, and campsite reviews.</p>
                 </div>
                 <div class="faq-item">
                     <h3>How long does it take to get a response?</h3>
@@ -435,15 +462,4 @@
 
     <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-apps">
-                <a href="/">🍜 OneSlurp</a>
-                <a href="/one-shake.html">🥃 OneShake</a>
-                <a href="/contact.html">Contact</a>
-            </div>
-            <p class="copyright">&copy; 2025 OneSlurp & OneShake. All rights reserved.</p>
-        </div>
-    </footer>
-
-</body>
-</html>
+        <div clas
