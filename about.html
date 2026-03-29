@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About — OneSource Apps</title>
+    <meta name="description" content="Meet the team behind OneSource Apps — the makers of OneSlurp, OneShake, and OneStay.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #0A0806;
+            --surface: #141210;
+            --surface-elevated: #1E1A16;
+            --gold: #D4A017;
+            --gold-light: #F0D060;
+            --gold-dim: #A07A10;
+            --gold-glow: rgba(212, 160, 23, 0.15);
+            --text: #F0EBE3;
+            --text-muted: #9C958C;
+            --border: #2A2520;
+            --white: #FFFFFF;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background: var(--black);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+        }
+
+        /* ─── Navigation ─── */
+        nav {
+            background: rgba(10, 8, 6, 0.92);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.75rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--gold); }
+
+        /* ─── Hero ─── */
+        .hero {
+            padding: 7rem 2rem 4rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            color: var(--gold);
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ─── Mission ─── */
+        .mission {
+            padding: 5rem 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .mission h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--gold);
+        }
+
+        .mission p {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        /* ─── Apps Showcase ─── */
+        .apps {
+            padding: 4rem 2rem;
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .apps-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .apps h2 {
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--text);
+        }
+
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .app-card {
+            background: var(--surface-elevated);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: var(--text);
+            display: block;
+        }
+
+        .app-card:hover {
+            border-color: rgba(212, 160, 23, 0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .app-card .app-emoji {
+            font-size: 3rem;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .app-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .app-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* ─── Team ─── */
+        .team {
+            padding: 5rem 2rem;
+        }
+
+        .team-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .team h2 {
+            font-size: 2.4rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .team > p {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            font-size: 1rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .team-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .team-card:hover {
+            border-color: rgba(212, 160, 23, 0.2);
+        }
+
+        .team-avatar {
+            width: 96px;
+            height: 96px;
+            border-radius: 50%;
+            background: var(--gold-glow);
+            border: 2px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.25rem;
+            font-size: 2.4rem;
+            color: var(--gold);
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+        }
+
+        .team-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.25rem;
+            color: var(--text);
+        }
+
+        .team-role {
+            font-size: 0.85rem;
+            color: var(--gold);
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            margin-bottom: 1rem;
+        }
+
+        .team-bio {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+            min-height: 60px;
+        }
+
+        /* ─── Contact ─── */
+        .contact {
+            padding: 4rem 2rem;
+            background: var(--surface);
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
+        .contact h2 {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+            color: var(--text);
+        }
+
+        .contact p {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact a {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .contact a:hover { text-decoration: underline; }
+
+        /* ─── Footer ─── */
+        footer {
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            border-top: 1px solid var(--border);
+        }
+
+        footer a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        footer a:hover { text-decoration: underline; }
+
+        /* ─── Responsive ─── */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .nav-links { display: none; }
+            .team-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="/about.html" class="logo-text">OneSource Apps</a>
+            <ul class="nav-links">
+                <li><a href="/">🍜 OneSlurp</a></li>
+                <li><a href="/one-shake.html" style="color:var(--gold);font-weight:600;">🥃 OneShake</a></li>
+                <li><a href="/one-stay.html" style="color:#C9A84C;font-weight:600;">🗝️ OneStay</a></li>
+                <li><a href="/oneslurp-download.html">Download</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1>About <em>OneSource Apps</em></h1>
+        <p>We build niche review apps for people who care deeply about what they eat, drink, and experience.</p>
+    </section>
+
+    <!-- Mission -->
+    <section class="mission">
+        <h2>Our Mission</h2>
+        <p>We believe the best recommendations come from people you trust — not algorithms, not ads, not sponsored placements. OneSource Apps builds focused, community-driven review platforms where every rating is authentic and every voice matters.</p>
+        <p>Each app in our family serves a specific passion. Whether you're a cocktail connoisseur, a soup obsessive, or a travel enthusiast, we've built the perfect tool for tracking, rating, and sharing your experiences.</p>
+    </section>
+
+    <!-- Apps -->
+    <section class="apps">
+        <div class="apps-container">
+            <h2>Our Apps</h2>
+            <div class="apps-grid">
+                <a href="/one-shake.html" class="app-card">
+                    <span class="app-emoji">🥃</span>
+                    <h3>OneShake</h3>
+                    <p>Rate cocktails, wines, beers, and spirits. Share your reviews and discover what everyone's drinking.</p>
+                </a>
+                <a href="/" class="app-card">
+                    <span class="app-emoji">🍜</span>
+                    <h3>OneSlurp</h3>
+                    <p>The ultimate soup review app. Discover, rate, and share amazing soups from restaurants near you.</p>
+                </a>
+                <a href="/one-stay.html" class="app-card">
+                    <span class="app-emoji">🗝️</span>
+                    <h3>OneStay</h3>
+                    <p>Rate hotels, resorts, Airbnbs, and cruises. Build your travel journal and share with fellow travelers.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team -->
+    <section class="team">
+        <div class="team-container">
+            <h2>Leadership</h2>
+            <p>The people building OneSource Apps.</p>
+
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar">—</div>
+                    <h3>Chief Executive Officer</h3>
+                    <div class="team-role">CEO</div>
+                    <p class="team-bio">Bio coming soon.</p>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-avatar">—</div>
+                    <h3>Chief Technology Officer</h3>
+                    <div class="team-role">CTO</div>
+                    <p class="team-bio">Bio coming soon.</p>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-avatar">—</div>
+                    <h3>Chief Operating Officer</h3>
+                    <div class="team-role">COO</div>
+                    <p class="team-bio">Bio coming soon.</p>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-avatar">—</div>
+                    <h3>Chief Marketing Officer</h3>
+                    <div class="team-role">CMO</div>
+                    <p class="team-bio">Bio coming soon.</p>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-avatar">—</div>
+                    <h3>Chief Financial Officer</h3>
+                    <div class="team-role">CFO</div>
+                    <p class="team-bio">Bio coming soon.</p>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-avatar">—</div>
+                    <h3>Chief Product Officer</h3>
+                    <div class="team-role">CPO</div>
+                    <p class="team-bio">Bio coming soon.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact">
+        <h2>Get in Touch</h2>
+        <p>Questions, partnerships, or just want to say hi?</p>
+        <a href="mailto:support@one-slurp.com">support@one-slurp.com</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 OneSource Apps. All rights reserved. | <a href="mailto:support@one-slurp.com">support@one-slurp.com</a></p>
+    </footer>
+</body>
+</html>
