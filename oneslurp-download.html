@@ -34,6 +34,52 @@
             overflow-x: hidden;
         }
 
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(12, 10, 9, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0.9rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+        .nav-logo .s { color: var(--slurp-primary); }
+        .nav-logo .k { color: var(--shake-secondary); }
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+            align-items: center;
+        }
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--text); }
+        .nav-links .slurp { color: var(--slurp-primary); font-weight: 600; }
+        .nav-links .shake { color: var(--shake-secondary); font-weight: 600; }
+        .nav-links .stay { color: #C9A84C; font-weight: 600; }
+        @media (max-width: 600px) {
+            .nav-links { gap: 1rem; }
+            .nav-links a { font-size: 0.82rem; }
+        }
+
         body::before {
             content: '';
             position: fixed;
@@ -323,6 +369,19 @@
     </style>
 </head>
 <body>
+<nav>
+    <div class="nav-inner">
+        <a href="/" class="nav-logo"><span class="s">One</span><span class="k">Source</span></a>
+        <ul class="nav-links">
+            <li><a href="/" class="slurp">🍜 OneSlurp</a></li>
+            <li><a href="https://one-shake.com/" class="shake">🥃 OneShake</a></li>
+            <li><a href="/one-stay.html" class="stay">🗝️ OneStay</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
 <div class="page">
 
     <header>
