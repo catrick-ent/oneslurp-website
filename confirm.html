@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Confirmed — OneSource Apps</title>
+    <meta name="description" content="Your email has been confirmed. Welcome to the OneSource Apps community.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy:       #1B2A4A;
+            --navy-deep:  #111D33;
+            --navy-light: #243554;
+            --gold:       #C9A84C;
+            --gold-light: #E8C96A;
+            --gold-dim:   rgba(201,168,76,0.15);
+            --text:       #F0EDF8;
+            --text-muted: #8899BB;
+            --border:     rgba(201,168,76,0.2);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--navy-deep);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .card {
+            background: var(--navy);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 3rem 2.5rem;
+            max-width: 460px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .wordmark {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 0.03em;
+            margin-bottom: 2rem;
+            display: block;
+            text-decoration: none;
+        }
+
+        .check {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: var(--gold-dim);
+            border: 1.5px solid var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .check svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--gold);
+            stroke-width: 2.5;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
+        }
+
+        p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .divider {
+            height: 1px;
+            background: var(--border);
+            margin: 1.75rem 0;
+        }
+
+        .apps {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .app-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .app-pill:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        footer {
+            margin-top: 2rem;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            opacity: 0.6;
+            text-align: center;
+        }
+
+        footer a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        footer a:hover { opacity: 1; }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+
+        <span class="wordmark">OneSource Apps</span>
+
+        <div class="check">
+            <svg viewBox="0 0 24 24">
+                <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+        </div>
+
+        <h1>Email confirmed</h1>
+
+        <p>
+            You're all set. Open the app on your phone,
+            sign in with your email and password, and start exploring.
+        </p>
+
+        <div class="divider"></div>
+
+        <p style="font-size:0.82rem;margin-bottom:1rem;">Don't have the app yet?</p>
+
+        <div class="apps">
+            <a class="app-pill" href="https://apps.apple.com/us/app/oneshake/id6759610331">🥃 OneShake</a>
+            <a class="app-pill" href="https://apps.apple.com/us/app/oneslurp/id6756277758">🍜 OneSlurp</a>
+            <a class="app-pill" href="https://apps.apple.com/us/app/onestay/id6743534931">🗝️ OneStay</a>
+        </div>
+
+    </div>
+
+    <footer>
+        <a href="https://one-slurp.com/privacy.html">Privacy</a>
+        &nbsp;·&nbsp;
+        <a href="https://one-slurp.com/terms.html">Terms</a>
+        &nbsp;·&nbsp;
+        <a href="mailto:support@one-slurp.com">Support</a>
+        &nbsp;·&nbsp;
+        © 2026 OneSource Apps
+    </footer>
+
+</body>
+</html>
