@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BuildsWithGrady</title>
+<meta name="description" content="BuildsWithGrady: Pokémon cards and custom art, Pokémon 3D prints, and LEGO Minecraft builds.">
+<style>
+  body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#f6f4ef;color:#1d1d1f}
+  main{text-align:center;padding:2rem;max-width:32rem}
+  h1{margin:0 0 .5rem;font-size:2rem}
+  p{margin:0 0 1.5rem;color:#555;line-height:1.5}
+  a{display:block;margin:.6rem auto;padding:.8rem 1.2rem;max-width:16rem;border-radius:10px;text-decoration:none;font-weight:600;color:#fff}
+  .ig{background:#c13584}.fb{background:#1877f2}
+  footer{margin-top:2rem;font-size:.85rem;color:#888}
+</style>
+</head>
+<body>
+<main>
+  <h1>BuildsWithGrady</h1>
+  <p>Pokémon cards and custom art, Pokémon 3D prints, and LEGO Minecraft builds.</p>
+  <a class="ig" href="https://www.instagram.com/buildswithgrady/">Instagram: @buildswithgrady</a>
+  <a class="fb" href="https://www.facebook.com/profile.php?id=1417577328109428">Facebook: BuildsWithGrady</a>
+  <footer>&copy; 2026 BuildsWithGrady</footer>
+</main>
+</body>
+</html>
