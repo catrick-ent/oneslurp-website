@@ -18,24 +18,26 @@ Apple-link corrections are isolated in website draft PR #1: https://github.com/c
 
 The Catrick Enterprises Play Console dashboard showed all three apps in closed testing, inactive production, and disabled Apply for production buttons. A published closed-test release was marked complete. Last verified opted-in counts:
 
-| App | Package | Opted in | Additional people needed to reach 12 |
+| App | Package | Opted in | Additional people to the displayed 12-tester threshold |
 | --- | --- | ---: | ---: |
 | OneSlurp | com.oneslurp.app | 3 | 9 |
 | OneShake | com.oneshake.app | 2 | 10 |
 | OneStay | com.onestay.app | 0 | 12 |
 
-Each app must have at least 12 testers opted in continuously for the preceding 14 days before applying for production access. Counts and elapsed eligibility must be rechecked at application time. Do not infer that the existing testers already satisfy the duration or that approval is automatic. The account separately requests a trader-status declaration by February 1, 2027; this is distinct from the displayed testing gate. OneSpoon appears as Draft; no readiness claim follows.
+Google scopes the 12-tester/14-continuous-day production-access rule to **personal developer accounts created after November 13, 2023**; it is not universal. The Catrick Enterprises account home explicitly displayed **Personal account**. Its creation date has **not been independently verified** and must not be inferred from its name or app dates. Nevertheless, each of the three inspected app dashboards explicitly displayed the 12-tester/14-day gate, an inactive production track, and a disabled Apply for production button. The table therefore records those app-specific console requirements, not an assumption based on account age. OneSpoon's production-access eligibility was not inspected; Draft status alone does not establish the same gate.
+
+Before planning another app's release or refreshing this plan, verify the developer account type and creation date from account/registration records, then inspect that app's existing production access. Recheck the observed gates, counts and elapsed eligibility. Meeting a displayed testing threshold only enables an application; Google then reviews the production-access application. Approval and a production release are separate steps, neither automatic nor completed here. A later console attempt rendered blank app pages, and the latest native browser read failed with cgWindowNotFound, so creation-date verification remains blocked on restoring that read-only session. The account separately requests a trader-status declaration by February 1, 2027; this is distinct from the displayed testing gate. OneSpoon appears as Draft; no readiness claim follows.
 
 Public US package URLs for OneShake/OneSlurp returned 404. The homepage internal-test links and the download page's generic testing links do not establish which current closed track grants access. A later read-only console attempt authenticated successfully but rendered blank app pages, so the intended track opt-in URLs were not copied or changed. Do not synthesize a public release URL or promise unrestricted downloads.
 
 ## Operator onboarding steps
 
-1. In the correct app, open **Test and release → Testing → Closed testing** and select the intended active track. Verify its release/build and supported countries/device requirements.
+1. First verify account type/creation date and the specific app's existing production access and displayed testing gate. Do not impose the new-personal-account rule on an app that already has production access or on another account without checking applicability. In the correct app, open **Test and release → Testing → Closed testing** and select the intended active track. Verify its release/build and supported countries/device requirements.
 2. Read the **Testers** configuration. Record whether access uses an email list or Google Group. Copy that track's actual opt-in link and verify it with an already authorized tester. Do not substitute an internal-test link. This console inspection is the remaining prerequisite to verifying the acquisition destinations.
 3. Obtain explicit permission before inviting anyone, editing a tester list/group, sending onboarding messages, or enrolling an account. Confirm the tester's Google account used in the Play Store; it need not be a Gmail address. Do not publish their address or list membership.
 4. Once access is authorized and granted, the tester opens the verified opt-in URL with that same account, opts in themselves, then installs from the provided Play Store destination. The request form merely prepares an email draft; the tester must send it. Sending the request does not grant access or opt the tester in.
 5. Have approved testers stay opted in throughout the required period and use the app meaningfully. Capture feedback through an approved channel. No invitation or feedback message is sent by this guide.
-6. Recheck the per-app count/duration. Once eligible, the operator can prepare production-access answers about the app, testing and readiness. Submission, release rollout and listing edits require their own authorization. No public launch date is promised.
+6. Recheck the applicable per-app gate and count/duration. Once eligible, the operator can prepare production-access answers about the app, testing and readiness. Submission, release rollout and listing edits require their own authorization. No public launch date is promised.
 
 Source: Google's production testing requirements, https://support.google.com/googleplay/android-developer/answer/14151465?hl=en ; track/tester setup, https://support.google.com/googleplay/android-developer/answer/9845334?hl=en .
 
